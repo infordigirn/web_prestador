@@ -1,0 +1,26 @@
+{
+  "name": "prestador",
+  "version": "1.0.0",
+  "description": "site prestação de serviços",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infordigirn/prestador.git"
+  },
+  "author": "ADS 5 Período",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/infordigirn/prestador/issues"
+  },
+  "homepage": "https://github.com/infordigirn/prestador#readme",
+  "dependencies": {
+    "consign": "^0.1.6",
+    "ejs": "^2.5.7",
+    "express": "^4.16.3",
+    "massive": "^4.7.1",
+    "nodemon": "^1.17.2"
+  }
+}
