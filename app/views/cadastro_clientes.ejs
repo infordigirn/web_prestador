@@ -1,0 +1,229 @@
+<% include ../headers %>
+
+<div class="panel panel-flat">
+    <div class="panel-body">
+        <section class="dataTables_wrapper no-footer">
+            <header class="datatable-header">
+
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-option="new" data-target="#options_dialog">Criar evento</button>
+
+                
+            </header>
+
+            <div class="datatable-scroll">
+                <table class="table table-hover datatable dataTable-responsive">
+                    <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Data/Hora inicio</th>
+                        <th>Data/hora fim</th>
+                        <th>Limite Pessoas</th>
+                        <th>Qtd. Pessoas cadastradas</th>
+                        <th>Valor</th>
+                        <th data-priority="1">Opções</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="text-center">
+                            <ul class="icons-list">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"></a>
+                                    <ul class="dropdown-menu dropdown-menu-right"
+                                        data-evt_nome=""
+                                        data-evt_hora_inicio=""
+                                        data-evt_hora_fim=""
+                                        data-evt_limite_pessoas=""
+                                        data-evt_valor="">
+                                        <li><a href="" >Gerenciar pessoas </a></li>
+                                        <li><a href="#" data-toggle="modal" data-option="edit" data-code="" data-target="#options_dialog">Editar evento </a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#" data-toggle="modal" data-option="delete" data-code="" data-target="#options_dialog">Excluir evento </a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    </tbody>
+                </table>
+            </div>
+
+            
+            <footer class="datatable-footer">
+                
+            </footer>
+        </section>
+    </div>
+</div>
+<div id="options_dialog" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" >
+        <div class="modal-content col-md-12" >
+
+            <div class="modal-header col-md-12">
+                <h4 id="modal-title" class="modal-title text-center text-bold"></h4>
+            </div>
+
+            <div class="modal-body">
+                <!-- início new -->
+                <div class="new_event" style="display:none">
+                    <div class="row">
+                        <form id="new_form" action="" method="POST">
+                            <input id="action" type="hidden" name="action" value="new">
+                            <div class="form-group col-md-12">
+                                <div class="form-group col-md-12">
+                                    <label for="nome"><strong>Nome:</strong></label>
+                                    <input type="text" class="form-control" id="nome" name="nome" required="required">
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label for="limite"><strong>Limite pessoas:</strong></label>
+                                    <input type="text" class="form-control" id="limite" name="limite" required="required">
+                                </div>
+                                
+                                <div class="form-group col-md-6">
+                                    <label for="valor">
+                                        <strong>Valor:</strong>
+                                    </label>
+                                    <div class="input-group">
+                                        <input type="text" id="valor" class="touchspin" name="valor" value="50" required="required"
+                                            data-min="50"
+                                            data-max="100000000"
+                                            dta-step="5"
+                                            data-prefix="$">
+                                    </div>
+                                </div>                        
+                            </div>                            
+                        </form>
+                    </div>    
+                </div>
+                <!-- fim new -->
+                <!-- início edit --> 
+                <div class="edit_event" style="display:none">
+                    <div class="row">
+                        <form id="edit_form" action="" method="POST">
+                            <input id="code_event_e" type="hidden" name="evt_codigo" value="">
+                            <input id="action" type="hidden" name="action" value="edit">
+                            <div class="form-group col-md-12">
+                                <div class="form-group col-md-12">
+                                    <label for="nome"><strong>Nome:</strong></label>
+                                    <input type="text" class="form-control" id="nome" name="nome" required="required">
+                                </div>
+
+
+                                <div class="form-group col-md-6">
+                                    <label for="limite"><strong>Limite pessoas:</strong></label>
+                                    <input type="text" class="form-control" id="limite" name="limite" required="required">
+                                </div>
+                                
+                                <div class="form-group col-md-6">
+                                    <label for="valor">
+                                        <strong>Valor:</strong>
+                                    </label>
+                                    <div class="input-group">
+                                        <input type="text" id="valor" class="touchspin" name="valor" value="50" required="required"
+                                            data-min="50"
+                                            data-max="100000000"
+                                            dta-step="5"
+                                            data-prefix="$">
+                                    </div>
+                                </div>                        
+                            </div>
+                        </form>
+                    </div>    
+                </div>
+                <!-- fim edit --> 
+                <!-- início delete -->
+                <div class="delete_event" style="display:none">
+                    <div class="row col-md-8">
+                        <form id="delete_form" action="" method="POST">
+                            <input id="code_event_d" type="hidden" name="evt_codigo" value="">
+                            <input id="action" type="hidden" name="action" value="delete">
+                            <div>
+                                <label for="" class="text-center">Digite sua senha financeira:</label>
+                                <input type="password"id="pass" name="pass" class="form-control" required="required">
+                                <input type="hidden" id="usu_codigo" name="usu_logado" value="">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- fim delete -->
+            </div> <!-- modal-body --> 
+            <div class="modal-footer col-md-12">
+                <button id="btn_1" type="button" class="btn btn_1 btn-success"></button>
+                <button id="btn_2" type="button" class="btn btn_2 btn-default cancel_edit" data-dismiss="modal"></button>
+            </div> <!-- modal-footer -->
+        </div> <!-- modal-content -->
+    </div> <!-- modal-dialog -->
+</div> <!-- modal fade -->
+
+<script>
+   
+    
+    var options = $('#options_dialog');
+
+    options.on('show.bs.modal', function(event){
+
+         var button = $(event.relatedTarget);
+
+         switch (button.data("option")){
+             case 'new':
+                options.find('.edit_event').hide();
+                options.find('.delete_event').hide();
+                options.find('.new_event').show();
+                options.find('.modal-title').html('Criar novo evento');
+                options.find('.btn_1').show();
+                options.find('.btn_1').html('Criar');
+                options.find('.btn_1').removeClass('btn-danger').addClass('btn-success');
+                options.find('.btn_2').html('Cancelar');
+                options.find('.btn_1').attr('onClick', 'document.getElementById("new_form").submit()');                
+                break;
+
+            case 'edit':
+                fillEditFields(button);
+                options.find('.new_event').hide();
+                options.find('.delete_event').hide();
+                options.find('.edit_event').show();
+                options.find('.modal-title').html('Editar evento');
+                options.find('.btn_1').html('Editar');
+                options.find('.btn_1').removeClass('btn-danger').addClass('btn-success');
+                options.find('.btn_2').html('Cancelar');
+                options.find('.btn_2').removeClass('cancel_edit');
+                options.find('.btn_1').attr('onClick', 'document.getElementById("edit_form").submit()');
+                options.find('#code_event_e').val(button.data('code'));
+                break;
+
+            case 'delete':
+                options.find('.edit_event').hide();
+                options.find('.new_event').hide();
+                options.find('.delete_event').show();
+                options.find('.modal-title').html('Excluir evento');
+                options.find('.btn_1').show();
+                options.find('.btn_1').html('Sim');
+                options.find('.btn_1').removeClass('btn-success').addClass('btn-danger');
+                options.find('.btn_2').html('Não');
+                options.find('.btn_2').removeClass('cancel_edit');
+                options.find('.btn_1').attr('onClick', 'document.getElementById("delete_form").submit()');
+                options.find('#code_event_d').val(button.data('code'));
+                break;
+         }
+    });
+    console.log(event);
+    function fillEditFields(node){
+        var parent = $(node).parent().parent();
+        options.find('#edit_form #nome').val(parent.data('evt_nome'));
+        options.find('#edit_form #to_inicio').val(parent.data('evt_hora_inicio'));
+        options.find('#edit_form #to_fim').val(parent.data('evt_hora_fim'));
+        options.find('#edit_form #limite').val(parent.data('evt_limite_pessoas'));
+        options.find('#edit_form #valor').val(parent.data('evt_valor'));       
+    }
+    
+</script>

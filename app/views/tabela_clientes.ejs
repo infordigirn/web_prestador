@@ -1,0 +1,232 @@
+<% include ../headers _%>
+
+<body>
+
+<div class="container">
+  <h2>Tabela de Clientes</h2>
+  <p>Tabela exibe clientes cadastrados:</p> 
+
+  <!-- inicio tabela -->       
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Username</th>
+        <th>Tipo</th>
+        <th>Status</th>
+        <th>Opções</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <% usuarios.forEach( function(user){ _%>
+      <tr>
+        <td><%= user.usu_code %></td>
+        <td><%= user.usu_name %></td>
+        <td><%= user.usu_email %></td>
+        <td><%= user.usu_user %></td>
+        <td><%= user.usu_tipo_code %></td>
+        <td><%= user.usu_status %></td>
+        <td class="text-center">
+          <ul class="icons-list">
+            <li class="dropdown" style="list-style:none !important">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-left"
+                data-usu_code = "<%= user.usu_code %>"
+                data-usu_name = "<%= user.usu_name %>"
+                data-usu_email = "<%= user.usu_email %>"
+                data-usu_user = "<%= user.usu_user %>"
+                data-usu_pass = "<%= user.usu_pass %>"
+                data-usu_tipo_code = "<%= user.usu_tipo_code %>"
+                data-usu_status = "<%= user.usu_status %>"
+              >
+                <li><a href="#" data-toggle="modal" data-option="new" data-target="#options_new"> Cadastrar </a></li>
+                <li><a href="#" data-toggle="modal" data-option="edit" data-code="<%= user.usu_code %>" data-target="#options_edit"> Editar </a></li>
+                <li class="divider"></li>
+                <li><a href="#" data-toggle="modal" data-option="delete" data-code="<%= user.usu_code %>" data-target="#options_delete"> Excluir </a></li>
+              </ul>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    <% }); _%>
+    </tbody>
+  </table>
+</div><!-- container -->
+<!-- fim tabela -->
+<!-- inicio modal -->
+<div id="options_new" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content col-md-12">
+
+      <div class="modal-header col-md-12">
+        <h4 id="modal-title" class="modal-title text-center text-bold"><strong>Cadastro de Usuários</strong></h4>
+        <h6><strong>Cadastrar Usuários</strong></h6>
+      </div>
+
+      <div class="modal-body">
+        <!-- inicio modal new -->
+        <div class="new_client">
+          <div class="row">
+            <form id="new_form" action="/clientes" method="POST">
+              <input id="action" type="hidden" name="action" value="new">
+              <div class="form-group col-md-12">
+                <label for="name"><strong>Nome:</strong></label>
+                <input type="text" id="nome" class="form-control" name="nome" required="required"> 
+                <label for="email"><strong>Email:</strong></label>
+                <input type="email" id="email" class="form-control" name="email" required="required">
+                <div class="row">
+                  <div class="col-md-4">
+                    <label for="user"><strong>Username:</strong></label>
+                    <input type="text" id="user" class="form-control" name="user" required="required">
+                  </div>
+                  <div class="col-md-4">
+                    <label for="status"><strong>Tipo:</strong></label>
+                    <select class="form-control">
+                      <option value="4" checked>Cliente</option>
+                      <option value="3">Prestador</option>
+                      <option value="2">Colaborador</option>
+                      <option value="1">Administrar</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="status"><strong>Status:</strong></label>
+                    <select class="form-control">
+                      <option value="2" checked>Inativo</option>
+                      <option value="1">Ativo</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="pass"><strong>Password:</strong></label>
+                    <input type="password" id="pass" class="form-control" name="pass" required="required">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="conf_pass"><strong>Confirm Password:</strong></label>
+                    <input type="password" id="conf_pass" class="form-control" name="conf_pass" required="required">
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div><!-- modal body -->
+      <div class="modal-footer col-md-12">
+        <button id="btn_1" type="button" class="btn btn-success">Cadastrar</button>
+        <button id="btn_2" type="button" class="btn btn-secundary cancel_edit" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div><!-- modal content -->
+  </div><!-- modal dialog -->
+</div><!-- modal fade -->  
+<!-- fim modal new -->
+
+<div id="options_edit" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content col-md-12">
+
+      <div class="modal-header col-md-12">
+        <h4 id="modal-title" class="modal-title text-center text-bold"><strong>Cadastro de Usuários</strong></h4>
+        <h6><strong>Editar Usuários</strong></h6>
+      </div>
+
+      <div class="modal-body">
+        <!-- inicio modal edit -->
+        <div class="edit_client">
+          <div class="row">
+            <form id="edit_form" action="/cadastro" method="POST">
+              <input id="cli_code_e" type="hidden" name="cli_code" value="">
+              <input id="action" type="hidden" name="action" value="edit">
+              <div class="form-group col-md-12">
+                <label for="name"><strong>Nome:</strong></label>
+                <input type="text" id="nome" class="form-control" name="nome" required="required"> 
+                <label for="email"><strong>Email:</strong></label>
+                <input type="email" id="email" class="form-control" name="email" required="required">
+                <div class="row">
+                  <div class="col-md-4">
+                    <label for="user"><strong>Username:</strong></label>
+                    <input type="text" id="user" class="form-control" name="user" required="required">
+                  </div>
+                  <div class="col-md-4">
+                    <label for="status"><strong>Tipo:</strong></label>
+                    <select id ="select_tipo" class="form-control">
+                      <option value="4" checked>Cliente</option>
+                      <option value="3">Prestador</option>
+                      <option value="2">Colaborador</option>
+                      <option value="1">Administrador</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="status"><strong>Status:</strong></label>
+                    <select id="select_status" class="form-control">
+                      <option value="2" checked>Inativo</option>
+                      <option value="1">Ativo</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div><!-- modal body -->
+      <div class="modal-footer col-md-12">
+        <button id="btn_1" type="button" class="btn btn-success">Editar</button>
+        <button id="btn_2" type="button" class="btn btn-secundary cancel_edit" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div><!-- modal content -->
+  </div><!-- modal dialog -->
+</div><!-- modal fade -->
+<!-- fim modal edit -->
+
+<div id="options_delete" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content col-md-12">
+
+      <div class="modal-header col-md-12">
+        <h4 id="modal-title" class="modal-title text-center text-bold"><strong>Cadastro de Usuários</strong></h4>
+        <h6><strong>Excluir Usuários</strong></h6>
+      </div>
+
+      <div class="modal-body">
+        <!-- inicio modal delete -->
+        <div class="delete_client">
+          <div class="row">
+            <form id="delete_form" action="" method="POST">
+              <input id="cli_code_d" type="hidden" name="cli_code" value="">
+              <input id="action" type="hidden" name="action" value="delete">
+              <div class="form-group col-md-12">
+              <label for="pass"><strong>Digite sua senha:</strong></label>
+              <input type="password" id="pass" class="form-control" name="pass" required="required">
+              <input type="hidden" id="adm_codigo" name="adm_user" value="1530"
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- fim modal delete -->
+        </div>
+        <div class="modal-footer col-md-12">
+          <button id="btn_1" type="button" class="btn btn-success">Excluir</button>
+          <button id="btn_2" type="button" class="btn btn-secundary cancel_edit" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div><!-- modal body -->
+    </div><!-- modal content -->
+  </div><!-- modal dialog -->
+</div><!-- modal fade -->
+<!-- fim modal -->
+
+<script>
+
+fillEditFields($(event.relatedTarget));
+
+function fillEditFields(node){
+  var parent = $(node).parent().parent();
+  $('#options_edit').find('#edit_form #nome').val(parent.data('usu_nome'));  
+}
+
+</script>
+
+<% include ../footer %>
