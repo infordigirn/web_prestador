@@ -4,11 +4,11 @@ module.exports = (app) => {
     	app.database.run(`
     		SELECT
     			*
-    		FROM tb_clientes
+    		FROM tb_usuarios
     	`,[]).then(data => {
-    		res.render('tabela_clientes', { clientes : data });
+    		res.render('tabela_clientes', { usuarios : data });
     	}).catch(error => {
-    		res.render('tabela_clientes', { clientes : null, status : 'Error, tente novamente mais tarde.' });
+    		res.render('tabela_clientes', { usuarios : null, status : 'Error, tente novamente mais tarde.' });
     	});
     })
 
