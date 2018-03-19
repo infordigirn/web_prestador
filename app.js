@@ -17,6 +17,6 @@ massive({
         console.log('Server Listem, PORT:3000');
     });
 }).catch(error => {
-    console.log('Error to connect DB', error);
+    console.log('Error to connect in DB', error);
 });
 module.exports = app;
