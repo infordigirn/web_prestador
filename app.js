@@ -1,9 +1,15 @@
 global.express = require('express');
 const massive = require('massive');
 const consign = require('consign');
+const bodyParser = require('body-parser');
+
 const app = global.express();
+
 app.set('view engine', 'ejs');
 app.set('views', './app/views');
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
 consign().include('app/routes').then('app/models').into(app);
 massive({
     host: '127.0.0.1',

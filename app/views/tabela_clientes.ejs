@@ -21,7 +21,7 @@
     </thead>
 
     <tbody>
-    <% usuarios.forEach((user) => { _%>
+    <% usuario.forEach((user) => { _%>
       <tr>
         <td><%= user.usu_code %></td>
         <td><%= user.usu_name %></td>
@@ -72,21 +72,21 @@
         <!-- inicio modal new -->
         <div class="new_client">
           <div class="row">
-            <form id="new_form" action="/clientes" method="POST">
+            <form id="new_form" action="/cliente" method="POST">
               <input id="action" type="hidden" name="action" value="new">
               <div class="form-group col-md-12">
                 <label for="nome"><strong>Nome:</strong></label>
-                <input type="text" id="nome" class="form-control" name="nome" required="required"> 
+                <input type="text" id="nome" class="form-control nome" name="nome" required="required"> 
                 <label for="email"><strong>Email:</strong></label>
-                <input type="email" id="email" class="form-control" name="email" required="required">
+                <input type="email" id="email" class="form-control email" name="email" required="required">
                 <div class="row">
                   <div class="col-md-4">
                     <label for="user"><strong>Username:</strong></label>
-                    <input type="text" id="user" class="form-control" name="user" required="required">
+                    <input type="text" id="user" class="form-control user" name="user" required="required">
                   </div>
                   <div class="col-md-4">
                     <label for="tipo" class="tipo"><strong>Tipo:</strong></label>
-                    <select id="select_tipo" class="form-control">
+                    <select id="select_tipo" name="tipo" class="form-control select_tipo">
                       <option value="4" checked>Cliente</option>
                       <option value="3">Prestador</option>
                       <option value="2">Colaborador</option>
@@ -95,7 +95,7 @@
                   </div>
                   <div class="col-md-4">
                     <label for="status"><strong>Status:</strong></label>
-                    <select id="select_status" class="form-control">
+                    <select id="select_status" name="status" class="form-control select_status">
                       <option value="2" checked>Inativo</option>
                       <option value="1">Ativo</option>
                     </select>
@@ -104,79 +104,25 @@
                 <div class="row">
                   <div class="col-md-6">
                     <label for="pass"><strong>Password:</strong></label>
-                    <input type="password" id="pass" class="form-control" name="pass" required="required">
+                    <input type="password" id="pass" class="form-control pass" name="pass" required="required">
                   </div>
                   <div class="col-md-6">
                     <label for="conf_pass"><strong>Confirm Password:</strong></label>
-                    <input type="password" id="conf_pass" class="form-control" name="conf_pass" required="required">
+                    <input type="password" id="conf_pass" class="form-control conf_pass" name="conf_pass" required="required">
                   </div>
                 </div>
+              </div>
+              <div class="modal-footer col-md-12">
+                <button id="btn_1" type="submit" class="btn btn_1 btn-success">Cadastrar</button>
+                <button id="btn_2" type="button" class="btn btn_2 btn-secundary cancel_edit" data-dismiss="modal">Cancelar</button>
               </div>
             </form>
           </div>
         </div>
         <!-- fim new -->
-
-        <!-- inicio edit -->
-        <div class="edit_client" style="display:none">
-          <div class="row">
-            <form id="edit_form" action="/cadastro" method="POST">
-              <input id="cli_code_e" type="hidden" name="cli_code" value="">
-              <input id="action" type="hidden" name="action" value="edit">
-              <div class="form-group col-md-12">
-                <label for="nome"><strong>Nome:</strong></label>
-                <input type="text" id="nome" class="form-control" name="nome" required="required"> 
-                <label for="email"><strong>Email:</strong></label>
-                <input type="email" id="email" class="form-control" name="email" required="required">
-                <div class="row">
-                  <div class="col-md-4">
-                    <label for="user"><strong>Username:</strong></label>
-                    <input type="text" id="user" class="form-control" name="user" required="required">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="tipo"><strong>Tipo:</strong></label>
-                    <select id ="select_tipo" class="form-control">
-                      <option value="4" checked>Cliente</option>
-                      <option value="3">Prestador</option>
-                      <option value="2">Colaborador</option>
-                      <option value="1">Administrador</option>
-                    </select>
-                  </div>
-                  <div class="col-md-4">
-                    <label for="status"><strong>Status:</strong></label>
-                    <select id="select_status" class="form-control">
-                      <option value="2" checked>Inativo</option>
-                      <option value="1">Ativo</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-        <!-- fim edit -->
-
-        <!-- inicio modal delete -->
-        <div class="delete_client" style="display:none">
-          <div class="row">
-            <form id="delete_form" action="" method="POST">
-              <input id="cli_code_d" type="hidden" name="cli_code" value="">
-              <input id="action" type="hidden" name="action" value="delete">
-              <div class="form-group col-md-12">
-              <label for="pass"><strong>Digite sua senha:</strong></label>
-              <input type="password" id="pass" class="form-control" name="pass" required="required">
-              <input type="hidden" id="adm_codigo" name="adm_user" value="1530"
-              </div>
-            </form>
-          </div>
-        </div>
-        <!-- fim modal delete -->
-
+        
       </div><!-- modal body -->
-      <div class="modal-footer col-md-12">
-        <button id="btn_1" type="button" class="btn btn-success">Cadastrar</button>
-        <button id="btn_2" type="button" class="btn btn-secundary cancel_edit" data-dismiss="modal">Cancelar</button>
-      </div>
+      
     </div><!-- modal content -->
   </div><!-- modal dialog -->
 </div><!-- modal fade -->  
@@ -186,7 +132,7 @@
 
 <script>
 
-
+  
 
 </script>
 
