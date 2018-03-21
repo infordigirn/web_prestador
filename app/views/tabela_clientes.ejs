@@ -64,8 +64,8 @@
     <div class="modal-content col-md-12">
 
       <div class="modal-header col-md-12">
-        <h4 id="modal-title" class="modal-title text-center text-bold"><strong>Cadastro de Usuários</strong></h4>
-        <h6><strong>Cadastrar Usuários</strong></h6>
+        <h4 id="modal-title" class="modal-title text-center text-bold"><strong></strong></h4>
+        <h6><strong></strong></h6>
       </div>
 
       <div class="modal-body">
@@ -75,7 +75,7 @@
             <form id="new_form" action="/clientes" method="POST">
               <input id="action" type="hidden" name="action" value="new">
               <div class="form-group col-md-12">
-                <label for="name"><strong>Nome:</strong></label>
+                <label for="nome"><strong>Nome:</strong></label>
                 <input type="text" id="nome" class="form-control" name="nome" required="required"> 
                 <label for="email"><strong>Email:</strong></label>
                 <input type="email" id="email" class="form-control" name="email" required="required">
@@ -85,8 +85,8 @@
                     <input type="text" id="user" class="form-control" name="user" required="required">
                   </div>
                   <div class="col-md-4">
-                    <label for="status"><strong>Tipo:</strong></label>
-                    <select class="form-control">
+                    <label for="tipo" class="tipo"><strong>Tipo:</strong></label>
+                    <select id="select_tipo" class="form-control">
                       <option value="4" checked>Cliente</option>
                       <option value="3">Prestador</option>
                       <option value="2">Colaborador</option>
@@ -95,7 +95,7 @@
                   </div>
                   <div class="col-md-4">
                     <label for="status"><strong>Status:</strong></label>
-                    <select class="form-control">
+                    <select id="select_status" class="form-control">
                       <option value="2" checked>Inativo</option>
                       <option value="1">Ativo</option>
                     </select>
@@ -115,6 +115,63 @@
             </form>
           </div>
         </div>
+        <!-- fim new -->
+
+        <!-- inicio edit -->
+        <div class="edit_client" style="display:none">
+          <div class="row">
+            <form id="edit_form" action="/cadastro" method="POST">
+              <input id="cli_code_e" type="hidden" name="cli_code" value="">
+              <input id="action" type="hidden" name="action" value="edit">
+              <div class="form-group col-md-12">
+                <label for="nome"><strong>Nome:</strong></label>
+                <input type="text" id="nome" class="form-control" name="nome" required="required"> 
+                <label for="email"><strong>Email:</strong></label>
+                <input type="email" id="email" class="form-control" name="email" required="required">
+                <div class="row">
+                  <div class="col-md-4">
+                    <label for="user"><strong>Username:</strong></label>
+                    <input type="text" id="user" class="form-control" name="user" required="required">
+                  </div>
+                  <div class="col-md-4">
+                    <label for="tipo"><strong>Tipo:</strong></label>
+                    <select id ="select_tipo" class="form-control">
+                      <option value="4" checked>Cliente</option>
+                      <option value="3">Prestador</option>
+                      <option value="2">Colaborador</option>
+                      <option value="1">Administrador</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="status"><strong>Status:</strong></label>
+                    <select id="select_status" class="form-control">
+                      <option value="2" checked>Inativo</option>
+                      <option value="1">Ativo</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- fim edit -->
+
+        <!-- inicio modal delete -->
+        <div class="delete_client" style="display:none">
+          <div class="row">
+            <form id="delete_form" action="" method="POST">
+              <input id="cli_code_d" type="hidden" name="cli_code" value="">
+              <input id="action" type="hidden" name="action" value="delete">
+              <div class="form-group col-md-12">
+              <label for="pass"><strong>Digite sua senha:</strong></label>
+              <input type="password" id="pass" class="form-control" name="pass" required="required">
+              <input type="hidden" id="adm_codigo" name="adm_user" value="1530"
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- fim modal delete -->
+
       </div><!-- modal body -->
       <div class="modal-footer col-md-12">
         <button id="btn_1" type="button" class="btn btn-success">Cadastrar</button>
@@ -129,12 +186,7 @@
 
 <script>
 
-fillEditFields($(event.relatedTarget));
 
-function fillEditFields(node){
-  var parent = $(node).parent().parent();
-  $('#options_edit').find('#edit_form #nome').val(parent.data('usu_nome'));  
-}
 
 </script>
 
