@@ -4,8 +4,15 @@
 
 <div class="container">
   <h2>Tabela de Clientes</h2>
-  <p>Tabela exibe clientes cadastrados:</p> 
-
+  <div class="row">
+    <div class="col-md-11">
+      <p>Tabela exibe clientes cadastrados:</p> 
+    </div>
+    <div class="col-md-1">
+      <a href="#" class="btn btn-primary" data-toggle="modal" data-option="new" data-target="#options_dialog"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </a>
+    </div>
+  <br/><br/>
+  </div>
   <!-- inicio tabela -->       
   <table class="table table-bordered">
     <thead>
@@ -44,7 +51,6 @@
                 data-usu_tipo_code = "<%= user.usu_tipo_code %>"
                 data-usu_status = "<%= user.usu_status %>"
               >
-                <li><a href="#" data-toggle="modal" data-option="new" data-target="#options_dialog"> Cadastrar </a></li>
                 <li><a href="#" data-toggle="modal" data-option="edit" data-code="<%= user.usu_code %>" data-target="#options_dialog"> Editar </a></li>
                 <li class="divider"></li>
                 <li><a href="#" data-toggle="modal" data-option="delete" data-code="<%= user.usu_code %>" data-target="#options_dialog"> Excluir </a></li>
