@@ -8,7 +8,7 @@ const app = global.express();
 app.set('view engine', 'ejs');
 app.set('views', './app/views');
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 consign().include('app/routes').then('app/models').into(app);
 massive({
