@@ -21,7 +21,7 @@ massive({
     port: 5432,
     database: 'db_prestador',
     user: 'postgres',
-    password: 'helohim33'
+    password: '123456'
 }).then(instance => {
     app.database = instance;
     app.listen(3000, function() {
