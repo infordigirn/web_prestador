@@ -71,12 +71,12 @@
 
 			<div class="modal-header col-md-12">
 				<h4 id="modal-title" class="modal-title text-center text-bold"><strong></strong></h4>
-				<h6><strong></strong></h6>
+				<h6 id="modal-title-h6"><strong></strong></h6>
 			</div>
 
 			<div class="modal-body">
 			<!-- inicio modal new -->
-				<div class="new_client">
+				<div class="new_client" style="display:none">
 					<div class="row">
 						<form id="new_form" action="/clientes" method="POST">
 							<input id="action" type="hidden" name="action" value="new">
@@ -92,7 +92,7 @@
 									</div>
 									<div class="col-md-4">
 										<label for="tipo" class="tipo"><strong>Tipo:</strong></label>
-										<select id="select_tipo" name="tipo" class="form-control select_tipo">
+										<select id="tipo" name="tipo" class="form-control select_tipo">
 											<option value="4" checked>Cliente</option>
 											<option value="3">Prestador</option>
 											<option value="2">Colaborador</option>
@@ -101,7 +101,7 @@
 									</div>
 									<div class="col-md-4">
 										<label for="status"><strong>Status:</strong></label>
-										<select id="select_status" name="status" class="form-control select_status">
+										<select id="status" name="status" class="form-control select_status">
 											<option value="2" checked>Inativo</option>
 											<option value="1">Ativo</option>
 										</select>
@@ -114,29 +114,150 @@
 									</div>
 									<div class="col-md-6">
 										<label for="conf_pass"><strong>Confirm Password:</strong></label>
-										<input type="password" id="conf_pass" class="form-control conf_pass" name="conf_pass" required="required">
+										<input type="password" id="conf_pass" class="form-control conf_pass" required="required">
 									</div>
 								</div>
-							</div>
-							<div class="modal-footer col-md-12">
-								<button id="btn_1" type="submit" class="btn btn_1 btn-success">Cadastrar</button>
-								<button id="btn_2" type="button" class="btn btn_2 btn-secundary cancel_edit" data-dismiss="modal">Cancelar</button>
 							</div>
 						</form>
 					</div>
 				</div>
 				<!-- fim new -->
+				<!-- inicio modal edit -->
+				<div class="edit_client" style="display:none">
+					<div class="row">
+						<form id="edit_form" action="/clientes" method="POST">
+							<input id="action" type="hidden" name="action" value="edit">
+							<input id="code_client_e" type="hidden" name="client_code" vale=""> 
+							<div class="form-group col-md-12">
+								<label for="nome"><strong>Nome:</strong></label>
+								<input type="text" id="nome" class="form-control nome" name="nome" required="required"> 
+								<label for="email"><strong>Email:</strong></label>
+								<input type="email" id="email" class="form-control email" name="email" required="required">
+								<div class="row">
+									<div class="col-md-4">
+										<label for="user"><strong>Username:</strong></label>
+										<input type="text" id="user" class="form-control user" name="user" required="required">
+									</div>
+									<div class="col-md-4">
+										<label for="tipo" class="tipo"><strong>Tipo:</strong></label>
+										<select id="tipo" name="tipo" class="form-control select_tipo">
+											<option value="4" checked>Cliente</option>
+											<option value="3">Prestador</option>
+											<option value="2">Colaborador</option>
+											<option value="1">Administrar</option>
+										</select>
+									</div>
+									<div class="col-md-4">
+										<label for="status"><strong>Status:</strong></label>
+										<select id="status" name="status" class="form-control select_status">
+											<option value="2" checked>Inativo</option>
+											<option value="1">Ativo</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div><!-- edit_client -->
+				<!-- fim edit -->
+				<!-- inicio modal delete -->
+				<div class="delete_client" style="display:none">
+					<div class="row">
+						<form id="delete_form" action="/clientes" method="POST">
+							<input id="action" type="hidden" name="action" value="delete">
+							<input id="code_client_d" type="hidden" name="client_code" vale="">
+							<div class="form-group col-md-12">									
+								<label for="pass"><strong>Password:</strong></label>
+								<input type="password" id="pass" class="form-control pass" name="pass" required="required">									
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- fim delete -->
 			</div><!-- modal body -->
+			<div class="modal-footer col-md-12">
+				<button id="btn_1" type="button" class="btn btn_1 btn-success"></button>
+				<button id="btn_2" type="button" class="btn btn_2 btn-secundary cancel_edit" data-dismiss="modal"></button>
+			</div>
 		</div><!-- modal content -->
 	</div><!-- modal dialog -->
 </div><!-- modal fade -->  
 <!-- fim modal new -->
 
 <!-- fim modal -->
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 
 <script>
 
+	var options = $('#options_dialog');
 
+	options.on('show.bs.modal', function(event){
+
+		var button = $(event.relatedTarget);
+
+		switch (button.data("option")){
+			case 'new':
+				options.find('.edit_client').hide();
+				options.find('.delete_client').hide();
+				options.find('.new_client').show();
+				options.find('.modal-title').html('Cadatro de Usuários');
+				options.find('.modal-title-h6').html('Por favor, preencha todos os campos.');
+				options.find('.btn_1').show();
+				options.find('.btn_2').show();
+				options.find('.btn_1').html('Cadastrar');
+				options.find('.btn_2').html('Cancelar');
+				options.find('.btn_1').removeClass('btn-danger').addClass('btn-success');
+				options.find('.btn_1').attr('onClick', 'document.getElementById("new_form").submit()');
+			break;
+
+			case 'edit':
+				fillEditFields(button);
+				options.find('.new_client').hide();
+				options.find('.delete_client').hide();
+				options.find('.edit_client').show();
+				options.find('.modal-title').html('Edição de Usuários');
+				options.find('.modal-titlte-h6').html('Por favor, preencha todos os campos.');
+				options.find('.btn_1').show();
+				options.find('.btn_2').show();
+				options.find('.btn_1').html('Editar');
+				options.find('.btn_2').html('Cancelar');
+				options.find('.btn_1').removeClass('btn-danger').addClass('btn-success');
+				options.find('.btn_2').removeClass('cancel_edit');
+				options.find('.btn_1').attr('onClick', 'document.getElementById("edit_form").submit()');
+				options.find('#code_client_e').val(button.data('code'));
+			break;
+
+			case 'delete':
+				options.find('.new_client').hide();
+				options.find('.edit_client').hide();
+				options.find('.delete_client').show();
+				options.find('.modal-title').html('Exclusão de Usuários');
+				options.find('.modal-title-h6').html('Por favor, preencha todos os campos.');
+				options.find('.btn_1').show();
+				options.find('.btn_2').show();
+				options.find('.btn_1').html('Sim');
+				options.find('.btn_2').html('Não');
+				options.find('.btn_1').removeClass('btn-success').addClass('btn-danger');
+				options.find('.btn_2').removeClass('cancel_edit');
+				options.find('.btn_1').attr('onClick', 'document.getElementById("delete_form").submit()');
+				options.find('#code_client_d').val(button.data('code'));
+			break;
+		}
+	});
+
+	function fillEditFields(node){
+
+		var parent = $(node).parent().parent();
+
+		options.find('#edit_form #nome').val(parent.data('usu_name'));
+		options.find('#edit_form #email').val(parent.data('usu_email'));
+		options.find('#edit_form #user').val(parent.data('usu_user'));
+		options.find('#edit_form #pass').val(parent.data('usu_pass'));
+		options.find('#edit_form #tipo').val(parent.data('usu_tipo_code'));
+		options.find('#edit_form #status').val(parent.data('usu_status'));
+	}
 
 </script>
 
