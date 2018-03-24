@@ -3,134 +3,132 @@
 <body>
 
 <div class="container">
-  <h2>Tabela de Clientes</h2>
-  <div class="row">
-    <div class="col-md-11">
-      <p>Tabela exibe clientes cadastrados:</p> 
-    </div>
-    <div class="col-md-1">
-      <a href="#" class="btn btn-primary" data-toggle="modal" data-option="new" data-target="#options_dialog"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </a>
-    </div>
-  <br/><br/>
-  </div>
-  <!-- inicio tabela -->       
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Nome</th>
-        <th>Email</th>
-        <th>Username</th>
-        <th>Tipo</th>
-        <th>Status</th>
-        <th>Opções</th>
-      </tr>
-    </thead>
+	<h2>Tabela de Clientes</h2>
+	<div class="row">
+		<div class="col-md-11">
+			<p>Tabela exibe clientes cadastrados:</p> 
+		</div>
+		<div class="col-md-1">
+			<a href="#" class="btn btn-primary" data-toggle="modal" data-option="new" data-target="#options_dialog"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </a>
+		</div>
+		<br/><br/>
+	</div>
+	<!-- inicio tabela -->       
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Nome</th>
+				<th>Email</th>
+				<th>Username</th>
+				<th>Tipo</th>
+				<th>Status</th>
+				<th>Opções</th>
+			</tr>
+		</thead>
 
-    <tbody>
-    <% usuario.forEach((user) => { _%>
-      <tr>
-        <td><%= user.usu_code %></td>
-        <td><%= user.usu_name %></td>
-        <td><%= user.usu_email %></td>
-        <td><%= user.usu_user %></td>
-        <td><%= user.usu_tipo_code %></td>
-        <td><%= user.usu_status %></td>
-        <td class="text-center">
-          <ul class="icons-list">
-            <li class="dropdown" style="list-style:none !important">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
-              </a>
-              <ul class="dropdown-menu dropdown-menu-left"
-                data-usu_code = "<%= user.usu_code %>"
-                data-usu_name = "<%= user.usu_name %>"
-                data-usu_email = "<%= user.usu_email %>"
-                data-usu_user = "<%= user.usu_user %>"
-                data-usu_pass = "<%= user.usu_pass %>"
-                data-usu_tipo_code = "<%= user.usu_tipo_code %>"
-                data-usu_status = "<%= user.usu_status %>"
-              >
-                <li><a href="#" data-toggle="modal" data-option="edit" data-code="<%= user.usu_code %>" data-target="#options_dialog"> Editar </a></li>
-                <li class="divider"></li>
-                <li><a href="#" data-toggle="modal" data-option="delete" data-code="<%= user.usu_code %>" data-target="#options_dialog"> Excluir </a></li>
-              </ul>
-            </li>
-          </ul>
-        </td>
-      </tr>
-    <% }); _%>
-    </tbody>
-  </table>
+		<tbody>
+		<% usuario.forEach((user) => { _%>
+			<tr>
+				<td><%= user.usu_code %></td>
+				<td><%= user.usu_name %></td>
+				<td><%= user.usu_email %></td>
+				<td><%= user.usu_user %></td>
+				<td><%= user.usu_tipo_code %></td>
+				<td><%= user.usu_status %></td>
+				<td class="text-center">
+					<ul class="icons-list">
+						<li class="dropdown" style="list-style:none !important">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+							</a>
+							<ul class="dropdown-menu dropdown-menu-left"
+							data-usu_code = "<%= user.usu_code %>"
+							data-usu_name = "<%= user.usu_name %>"
+							data-usu_email = "<%= user.usu_email %>"
+							data-usu_user = "<%= user.usu_user %>"
+							data-usu_pass = "<%= user.usu_pass %>"
+							data-usu_tipo_code = "<%= user.usu_tipo_code %>"
+							data-usu_status = "<%= user.usu_status %>"
+							>
+								<li><a href="#" data-toggle="modal" data-option="edit" data-code="<%= user.usu_code %>" data-target="#options_dialog"> Editar </a></li>
+								<li class="divider"></li>
+								<li><a href="#" data-toggle="modal" data-option="delete" data-code="<%= user.usu_code %>" data-target="#options_dialog"> Excluir </a></li>
+							</ul>
+						</li>
+					</ul>
+				</td>
+			</tr>
+		<% }); _%>
+		</tbody>
+	</table>
 </div><!-- container -->
 <!-- fim tabela -->
 <!-- inicio modal -->
 <div id="options_dialog" class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content col-md-12">
+	<div class="modal-dialog">
+		<div class="modal-content col-md-12">
 
-      <div class="modal-header col-md-12">
-        <h4 id="modal-title" class="modal-title text-center text-bold"><strong></strong></h4>
-        <h6><strong></strong></h6>
-      </div>
+			<div class="modal-header col-md-12">
+				<h4 id="modal-title" class="modal-title text-center text-bold"><strong></strong></h4>
+				<h6><strong></strong></h6>
+			</div>
 
-      <div class="modal-body">
-        <!-- inicio modal new -->
-        <div class="new_client">
-          <div class="row">
-            <form id="new_form" action="/clientes" method="POST">
-              <input id="action" type="hidden" name="action" value="new">
-              <div class="form-group col-md-12">
-                <label for="nome"><strong>Nome:</strong></label>
-                <input type="text" id="nome" class="form-control nome" name="nome" required="required"> 
-                <label for="email"><strong>Email:</strong></label>
-                <input type="email" id="email" class="form-control email" name="email" required="required">
-                <div class="row">
-                  <div class="col-md-4">
-                    <label for="user"><strong>Username:</strong></label>
-                    <input type="text" id="user" class="form-control user" name="user" required="required">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="tipo" class="tipo"><strong>Tipo:</strong></label>
-                    <select id="select_tipo" name="tipo" class="form-control select_tipo">
-                      <option value="4" checked>Cliente</option>
-                      <option value="3">Prestador</option>
-                      <option value="2">Colaborador</option>
-                      <option value="1">Administrar</option>
-                    </select>
-                  </div>
-                  <div class="col-md-4">
-                    <label for="status"><strong>Status:</strong></label>
-                    <select id="select_status" name="status" class="form-control select_status">
-                      <option value="2" checked>Inativo</option>
-                      <option value="1">Ativo</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label for="pass"><strong>Password:</strong></label>
-                    <input type="password" id="pass" class="form-control pass" name="pass" required="required">
-                  </div>
-                  <div class="col-md-6">
-                    <label for="conf_pass"><strong>Confirm Password:</strong></label>
-                    <input type="password" id="conf_pass" class="form-control conf_pass" name="conf_pass" required="required">
-                  </div>
-                </div>
-              </div>
-              <div class="modal-footer col-md-12">
-                <button id="btn_1" type="submit" class="btn btn_1 btn-success">Cadastrar</button>
-                <button id="btn_2" type="button" class="btn btn_2 btn-secundary cancel_edit" data-dismiss="modal">Cancelar</button>
-              </div>
-            </form>
-          </div>
-        </div>
-        <!-- fim new -->
-        
-      </div><!-- modal body -->
-      
-    </div><!-- modal content -->
-  </div><!-- modal dialog -->
+			<div class="modal-body">
+			<!-- inicio modal new -->
+				<div class="new_client">
+					<div class="row">
+						<form id="new_form" action="/clientes" method="POST">
+							<input id="action" type="hidden" name="action" value="new">
+							<div class="form-group col-md-12">
+								<label for="nome"><strong>Nome:</strong></label>
+								<input type="text" id="nome" class="form-control nome" name="nome" required="required"> 
+								<label for="email"><strong>Email:</strong></label>
+								<input type="email" id="email" class="form-control email" name="email" required="required">
+								<div class="row">
+									<div class="col-md-4">
+										<label for="user"><strong>Username:</strong></label>
+										<input type="text" id="user" class="form-control user" name="user" required="required">
+									</div>
+									<div class="col-md-4">
+										<label for="tipo" class="tipo"><strong>Tipo:</strong></label>
+										<select id="select_tipo" name="tipo" class="form-control select_tipo">
+											<option value="4" checked>Cliente</option>
+											<option value="3">Prestador</option>
+											<option value="2">Colaborador</option>
+											<option value="1">Administrar</option>
+										</select>
+									</div>
+									<div class="col-md-4">
+										<label for="status"><strong>Status:</strong></label>
+										<select id="select_status" name="status" class="form-control select_status">
+											<option value="2" checked>Inativo</option>
+											<option value="1">Ativo</option>
+										</select>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<label for="pass"><strong>Password:</strong></label>
+										<input type="password" id="pass" class="form-control pass" name="pass" required="required">
+									</div>
+									<div class="col-md-6">
+										<label for="conf_pass"><strong>Confirm Password:</strong></label>
+										<input type="password" id="conf_pass" class="form-control conf_pass" name="conf_pass" required="required">
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer col-md-12">
+								<button id="btn_1" type="submit" class="btn btn_1 btn-success">Cadastrar</button>
+								<button id="btn_2" type="button" class="btn btn_2 btn-secundary cancel_edit" data-dismiss="modal">Cancelar</button>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- fim new -->
+			</div><!-- modal body -->
+		</div><!-- modal content -->
+	</div><!-- modal dialog -->
 </div><!-- modal fade -->  
 <!-- fim modal new -->
 
@@ -138,7 +136,7 @@
 
 <script>
 
-  
+
 
 </script>
 
