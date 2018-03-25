@@ -26,7 +26,7 @@ massive({
     app.database = instance;
     app.listen(3000, function() {
         console.log('Server Listem, PORT:3000');
-
+    });
 }).catch(error => {
     console.log('Error to connect in DB', error);
 });

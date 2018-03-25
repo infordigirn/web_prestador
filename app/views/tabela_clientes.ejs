@@ -3,6 +3,7 @@
 <body>
 
 <div class="container">
+	<h2 class="text-center">Área Administrativa</h2>
 	<h2>Tabela de Clientes</h2>
 	<div class="row">
 		<div class="col-md-11">
@@ -26,7 +27,7 @@
 				<th>Opções</th>
 			</tr>
 		</thead>
-
+		<% console.log(usuario) %>
 		<tbody>
 		<% usuario.forEach((user) => { _%>
 			<tr>
@@ -34,8 +35,8 @@
 				<td><%= user.usu_name %></td>
 				<td><%= user.usu_email %></td>
 				<td><%= user.usu_user %></td>
-				<td><%= user.usu_tipo_code %></td>
-				<td><%= user.usu_status %></td>
+				<td><%= user.tipo_name %></td>
+				<td><%= user.status_name %></td>
 				<td class="text-center">
 					<ul class="icons-list">
 						<li class="dropdown" style="list-style:none !important">
@@ -49,7 +50,7 @@
 							data-usu_user = "<%= user.usu_user %>"
 							data-usu_pass = "<%= user.usu_pass %>"
 							data-usu_tipo_code = "<%= user.usu_tipo_code %>"
-							data-usu_status = "<%= user.usu_status %>"
+							data-usu_status_code = "<%= user.usu_status_code %>"
 							>
 								<li><a href="#" data-toggle="modal" data-option="edit" data-code="<%= user.usu_code %>" data-target="#options_dialog"> Editar </a></li>
 								<li class="divider"></li>
@@ -70,8 +71,8 @@
 		<div class="modal-content col-md-12">
 
 			<div class="modal-header col-md-12">
-				<h4 id="modal-title" class="modal-title text-center text-bold"><strong></strong></h4>
-				<h6 id="modal-title-h6"><strong></strong></h6>
+				<h3 id="modal-title" class="modal-title text-bold"><strong></strong></h3>
+				<h6 id="modal-title-h6" class="modal-title-h6"><strong></strong></h6>
 			</div>
 
 			<div class="modal-body">
@@ -234,7 +235,7 @@
 				options.find('.edit_client').hide();
 				options.find('.delete_client').show();
 				options.find('.modal-title').html('Exclusão de Usuários');
-				options.find('.modal-title-h6').html('Por favor, preencha todos os campos.');
+				options.find('.modal-title-h6').html('Por favor, preencha seu password.');
 				options.find('.btn_1').show();
 				options.find('.btn_2').show();
 				options.find('.btn_1').html('Sim');
@@ -256,7 +257,7 @@
 		options.find('#edit_form #user').val(parent.data('usu_user'));
 		options.find('#edit_form #pass').val(parent.data('usu_pass'));
 		options.find('#edit_form #tipo').val(parent.data('usu_tipo_code'));
-		options.find('#edit_form #status').val(parent.data('usu_status'));
+		options.find('#edit_form #status').val(parent.data('usu_status_code'));
 	}
 
 </script>
