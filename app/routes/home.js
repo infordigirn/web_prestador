@@ -17,8 +17,9 @@ module.exports = (app) => {
     
     app.post('/clientes', (req, res, next) => {
 	console.log(req.body);
-	//var usu_code = req.body.client_code;
+	var usu_code = req.body.client_code;
 	var query = {
+		usu_code		: req.body.client_code,
 		usu_name 		: req.body.nome,
 		usu_email 		: req.body.email,
 		usu_user 		: req.body.user,
@@ -36,34 +37,26 @@ module.exports = (app) => {
 			app.database.tb_usuarios.destroy({ usu_code: usu_code }).then(data => {
 				res.redirect('/clientes')
 			}).catch(err => {
-				res.redirect('/clientes')
+				res.redirect('/clientes', err);
 			});
 		}
 
-	} else {
-
-		if (req.body.action == 'edit') {
-			app.database.query(`
-				UPDATE tb_usuarios SET
-					usu_name = req.body.nome,
-					usu_email = req.body.email,
-					usu_user = req.body.user,
-					usu_tipo_code = req.body.tipo,
-					usu_status_code = req.body.status,
-				WHERE usu_code = req.body.client_code 
-			`,[]).then(data => {
-				console.log('Gravou!')
-				res.redirect('/clientes' );
-			}).catch(err => {
-				console.log('Ocorreu algum erro!')
-				res.redirect('/clientes' );
-			});
+	} else if (req.body.action == 'edit') {
+		delete query.usu_pass;
+		app.database.tb_usuarios.update(query).then(data => {
+			console.log('Gravou!')
+			res.redirect('/clientes' );
+		}).catch(err => {
+			console.log('Ocorreu algum erro!', err);
+			res.redirect('/clientes' );
+		});
 			
-		} else {
-			app.database.tb_usuarios.insert(query).then(data => {
-				res.redirect('/clientes' );
-			}).catch(error => { res.redirect('/clientes') });
-		}
+	} else {
+		delete query.usu_code;
+		app.database.tb_usuarios.insert(query).then(data => {
+			res.redirect('/clientes' );
+		}).catch(error => { res.redirect('/clientes', err) });
 	}
+	
     })
 }
