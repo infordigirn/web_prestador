@@ -1,4 +1,4 @@
-<% include ../headers _%>
+<% include ../header_2 _%>
 
 <body>
 
@@ -97,7 +97,7 @@
 											<option value="4" checked>Cliente</option>
 											<option value="3">Prestador</option>
 											<option value="2">Colaborador</option>
-											<option value="1">Administrar</option>
+											<option value="1">Administrador</option>
 										</select>
 									</div>
 									<div class="col-md-4">
@@ -224,7 +224,7 @@
 				options.find('.btn_2').show();
 				options.find('.btn_1').html('Editar');
 				options.find('.btn_2').html('Cancelar');
-				options.find('.btn_1').removeClass('btn-danger').addClass('btn-success');
+				options.find('.btn_1').removeClass('btn-success').addClass('btn-primary');
 				options.find('.btn_2').removeClass('cancel_edit');
 				options.find('.btn_1').attr('onClick', 'document.getElementById("edit_form").submit()');
 				options.find('#code_client_e').val(button.data('code'));
