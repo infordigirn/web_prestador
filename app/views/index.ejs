@@ -1,0 +1,284 @@
+<% include ../header_2 %>
+
+      <body>
+            <script type="text/javascript">
+                  var Workana = {"isMobile":false,"isTablet":false,"isDesktop":true,"ajaxCSRFHeaderKey":"X-Csrf-Token","ajaxCSRFToken":"csrf5a9dabfa07987\/1ae31c30ba8e5210033663c731467c25","disableNotify":{"all":false,"custom":false,"desktop":false},"debug":false,"userId":null,"chatChannel":null,"notificationAudioUrl":"https:\/\/wkncdn.com\/newx\/assets\/build\/sounds\/new.568c45226.mp3","videoCallAudioUrl":"https:\/\/wkncdn.com\/newx\/assets\/build\/sounds\/video-call.49f6b43dd.mp3","language":"pt","locale":"pt_BR","chatEnabled":false,"amplitudeIsEnabled":true};
+            </script>
+            <div id="app" class="store">
+                  <header>
+                        <nav class="navbar navbar-inverse navbar-fixed-top navbar--primary">
+                              <div class="container">
+                                    <div class="navbar-header">
+                                          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+                                                <span class="icon-bar"></span>
+                                                <span class="icon-bar"></span>
+                                                <span class="icon-bar"></span>
+                                          </button>
+                                          <div class="input-search md visible-sm visible-xs pull-right">
+                                                <button class="search-submit" type="button" data-toggle="collapse" data-target="#mobile-header-search" aria-expanded="false">
+                                          </div>
+                                          
+                                          <a
+                                          href="index.html"
+                                          title="Inicio"
+                                          tabIndex ="-1">
+                                          <img height="50" width="100"
+                                          src="prestador.png"
+                                          alt="Prestador - Acesse os melhores profissionais do Estado"/>
+                                          </a>
+                                    </div>
+
+                                    <div class="navbar-collapse collapse navbar-inverse-collapse navbar-loggedout">
+                                          <ul class="nav navbar-nav main-menu pull-right">
+                                                <li><a href="#comofuncionalink" role="button" title="Cadastre-se" float right>Como Funciona?</a><li>
+                                                <li><a href="/cadastro" role="button" title="Cadastre-se" float right>Cadastre-se</a></li>
+                                                <li><a href="login2.html" role="button" title="Entrar ">Entrar </a></li>
+                                                <li><a href="/" role="button" title="Área Restrita" float right>Área Restrita</a></li>
+                                          </ul> 
+                                    </div>
+                              </div>                                               
+                        </nav>
+                        <span id="mobile-header-search" class="collapse" v-cloak>
+                              <div class="mobile-search visible-md visible-sm visible-xs">
+                                    <div class="container">
+                                          <header-search inline-template:options='{"projects":{"label":"Projetos","url":"/pt/jobs"},"workers":{"label":"Freelancers","url":"/pt/freelancers"},"store":{"label":"Store","url":"/pt/store/search"}}'current="store">
+                                                <form  @submit.prevent="search" class="searchForm">
+                                                      <div class="input-search lg">
+                                                            <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#">
+                                                                  <span class="search-title" v-cloak>
+                                                                        <span v-text="currentLabel"></span>
+                                                                        <b class="wk2-icon wk2-icon-down"></b>
+                                                                  </span>
+                                                            </a>
+                                                            <ul class="dropdown-menu" role="menu" >
+                                                                  <li v-for="(index, item) in  in options" v-show="current != index">
+                                                                        <a href="#" @click.prevent="current = index">
+                                                                              <span v-text="item.label"></span>
+                                                                        </a>
+                                                                  </li>
+                                                            </ul>
+                                                            <input type="text" name="query" value="" id="Query" class="search" v-model="query">
+                                                            <input type="submit" class="search-submit" value="" @click.prevent="search">
+                                                      </div>
+                                                </form>
+                                          </header-search>                
+                                    </div>
+                              </div>
+                        </span>
+                  </header>
+            </div>
+
+            <div class="container main">
+                  <section class="store-home-header notloggedin">
+                        <div class="container">
+                              <div class="title">
+                                    <h1> Prestador </h1> 
+                                    <h1>Encontre serviços <br />sem sair de<br />casa</h1>
+                              </div>
+                              <div class="image"></div>
+                        </div>
+
+                  </section>
+
+                  <section class="store-home-categories">
+                        <h2>Do que você precisa?</h2> 
+                        <h3> Categorias <h3>
+
+                        <div class="row">
+                              <div class="col-md-2 col-sm-4 col-xs-6">
+                                    <a class="btn btn-primary store-home-category-item" href="https://www.workana.com/pt/store/search?subcategory=logo-design">
+                                          <i class="icon-store icon-store-logo"></i>
+                                          <h5>Educação</h5>
+                                    </a>
+                              </div>
+                              <div class="col-md-2 col-sm-4 col-xs-6">
+                                    <a class="btn btn-primary store-home-category-item" href="https://www.workana.com/pt/store/search?subcategory=landing-page">
+                                          <i class="icon-store icon-store-landing"></i>
+                                          <h5>Informática</h5>
+                                    </a>                                                                          
+                              </div>
+                              <div class="col-md-2 col-sm-4 col-xs-6">
+                                    <a class="btn btn-primary store-home-category-item" href="https://www.workana.com/pt/store/search?subcategory=wordpress-1">
+                                          <i class="icon-store icon-store-wordpress"></i>
+                                          <h5>Categoria 3</h5>
+                                    </a>
+                              </div>
+                              <div class="col-md-2 col-sm-4 col-xs-6">
+                                    <a class="btn btn-primary store-home-category-item" href="https://www.workana.com/pt/store/search?subcategory=e-commerce">
+                                          <i class="icon-store icon-store-ecommerce"></i>
+                                          <h5>Auto</h5>
+                                    </a>
+                              </div>
+                              <div class="col-md-2 col-sm-4 col-xs-6">
+                                    <a class="btn btn-primary store-home-category-item" href="https://www.workana.com/pt/store/search?subcategory=make-or-edit-a-video">
+                                          <i class="icon-store icon-store-video"></i>
+                                          <h5>Cursos Online</h5>
+                                    </a>
+                              </div>
+                              <div class="col-md-2 col-sm-4 col-xs-6">
+                                    <a class="btn btn-primary store-home-category-item" href="https://www.workana.com/pt/store/search?subcategory=article-writing-1">
+                                          <i class="icon-store icon-store-writing"></i>
+                                          <h5>Categoria 6</h5>
+                                    </a>
+                              </div>
+                        </div>
+                  </section>
+
+                  <section class="store-home-featured">
+                        <div class="row">
+                              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 pull-right">
+                                    <div class="row">
+
+                                          <div class="row">
+                                                <div class="col-xs-6">
+                                                      <h1>Mais vendidos</h1>
+                                                </div>
+                                                <div class="col-xs-6 text-right">
+                                                      <a href="login2.html" class="btn btn-brand">Ver tudo</a>
+                                                </div>
+                                          </div>
+
+                                          <div class="store-home-list-wrapper">
+                                                <div class="store-home-list">
+                                                      <div class="row">
+
+                                                      <div class="col-xs-3">
+                                                            <article class="store-service-item">
+                                                                  <a href="descserv.html">
+                                                                  <figure>
+                                                                        <img src="https://workana.s3.amazonaws.com/store/products/thumbnails/small/24/f816508c2011e798e9137446aec2c6/trafficoptimization.jpg" alt="preview">
+                                                                  </figure>
+                                                                  <figcaption>
+                                                                        <div class="profile-photo img img-circle">
+                                                                              <img src="https://workana.s3.amazonaws.com/logos/6a/eb350065a811e7ad617189e345291b/foto-workana.png" alt="Helder">
+                                                                        </div>
+                                                                        <div class="user-resume">
+                                                                              <div class="user-name ellipsis">Helder</div>
+                                                                              <div class="user-category ellipsis">Desenvolvimento</div>
+                                                                        </div>
+                                                                        <h5>Desenvolvimento de sistemas</h5>
+                                                                        <p>Desenvolvimento de sistemas ERP.</p>
+                                                                        <h5 class="text-success price">R$ 100</h5>
+                                                                  </figcaption>
+                                                            </article>
+                                                            <footer>
+                                                      </div>
+
+                                                      <div class="col-xs-3">
+                                                            <article class="store-service-item">
+                                                                  <a href="descserv2.html">
+                                                                  <figure>
+                                                                        <img src="https://workana.s3.amazonaws.com/store/products/thumbnails/small/0b/15f100e9b111e7910e7b1165172d53/Comprar-Logo-Profissional-_-Aplicacao-em-Mockup-3D.jpg" alt="preview">
+                                                                  </figure>
+                                                                  <figcaption>
+                                                                        <div class="profile-photo img img-circle">
+                                                                              <img src="robsonscott.jpg" alt="Robson Scott">
+                                                                        </div>
+                                                                        <div class="user-resume">
+                                                                              <div class="user-name ellipsis">Robson Scott</div>
+                                                                              <div class="user-category ellipsis">Criação e design de logos 3D</div>
+                                                                        </div>
+                                                                        <h5>Criação de Logotipo + Aplicação em modelo 3D</h5>
+                                                                        <p>Criação do logo seguindo briefing exclusivo, só finalizamos o logo quando estiver 100% satisfeito.</p>
+                                                                        <h5 class="text-success price">R$ 250</h5>
+                                                                  </figcaption>
+                                                            </article>
+                                                            <footer>            
+                                                      </div>
+
+                                                      <div class="col-xs-3">
+                                                            <article class="store-service-item">
+                                                                  <a href="descserv3.html">
+                                                                  <figure>
+                                                                        <img src="https://workana.s3.amazonaws.com/store/products/thumbnails/small/e2/bf1b90717f11e7ae508f648974fa1c/wordpress.png" alt="preview">
+                                                                  </figure>
+                                                                  <figcaption>
+                                                                        <div class="profile-photo img img-circle">
+                                                                              <img src="robsonscott.jpg" alt="Robson Scott">
+                                                                        </div>
+                                                                        <div class="user-resume">
+                                                                              <div class="user-name ellipsis">Robson Scott</div>
+                                                                              <div class="user-category ellipsis">Desenvolvimento WEB</div>
+                                                                        </div>
+                                                                        <h5>Desenvolvimento WEB FrontEnd</h5>
+                                                                        <p>Desenvolvimento de sistes, sistemas web e app's</p>
+                                                                        <h5 class="text-success price">R$ 150</h5>
+                                                                  </figcaption>
+                                                                  <footer>
+                                                            </article>      
+                                                      </div>
+
+                                                      <div class="col-xs-3">
+                                                            <article class="store-service-item">
+                                                                  <a href="descserv4.html">
+                                                                  <figure>
+                                                                        <img src="eletricista.png" alt="preview">
+                                                                  </figure>
+                                                                  <figcaption>
+                                                                        <div class="profile-photo img img-circle">
+                                                                              <img src="eletricista.png" alt="Willian">
+                                                                        </div>
+                                                                        <div class="user-resume">
+                                                                              <div class="user-name ellipsis">Willian</div>
+                                                                              <div class="user-category ellipsis">Eletricista residencial</div>
+                                                                        </div>
+                                                                        <h5>Serviço de Eletricista residencial</h5>
+                                                                        <p>Serviços de Eletricista residencial e predial completo</p>
+                                                                        <h5 class="text-success price">R$ 390</h5>
+                                                                  </figcaption>
+                                                                  <footer>
+                                                            </article>
+                                                      </div>
+                                                      
+                                                      </div>
+                                                </div>
+                                          </div>
+
+                                          <div class="row">
+                                                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-12 text-center-xs">
+                                                      <label class="wk-bullet">Precisa de um Serviço?</label>
+                                                      <p><a href="register.html" class="btn btn-success btn-xs-block">Crie um serviço</a></p>
+                                                </div>
+                                          </div>
+                                          
+                                          </aside>
+                                    </div>
+                              </div>
+                        </div>
+                  </section>
+
+                  <section class="store-home-how-it-works">
+
+                        <div class="background"> 
+                              <div id="comofuncionalink" class="container">
+                                    <h2>Como funciona o Prestador?</h2>
+                                    <div class="row">
+                                          <div class="col-sm-4">
+                                                <div class="store-home-how-it-works-item">
+                                                      <i class="icon-store icon-store-how1"></i>
+                                                      <h4>Procure o serviço que precisa ou<br>explore o nosso site</h4>
+                                                      <p>No Store, os serviços mais destacados do Prestador oferecem logos, sites, vídeos, artigos, Wordpress e outros pacotes fechados.
+                                                </div>
+                                          </div>
+                                          <div class="col-sm-4">
+                                                <div class="store-home-how-it-works-item">
+                                                      <i class="icon-store icon-store-how2"></i>
+                                                      <h4>Veja e compare as ofertas</h4>
+                                                      <p>Cada Serviço que você encontra tem um preÇo fixo e especifica o que, como e em quanto tempo serviço é feito ao comprador.<br>Por exemplo:<br> "Faço uma logo em 15 dias com três alterações por 100 R$"</p>
+                                                </div>
+                                          </div>
+                                          <div class="col-sm-4">
+                                                <div class="store-home-how-it-works-item">
+                                                      <i class="icon-store icon-store-how3"></i>
+                                                      <h4>Escolha, pague, terá contato com o prestador do serviço<br>e terá o seu serviço</h4>
+                                                      <p>Quando encontrar o serviço que você quer, realize o pagamento<br>e o prestador esntrará em contato para realização do serviço.</p>
+                                                </div>
+                                          </div>
+                                    </div>
+                                    <a href="index.html" class="btn btn-success btn-lg btn-block">Explorar Serviços</a>
+                              </div>
+                        </div>
+                  </section>
+            </div>
+      </body>
+</html>
