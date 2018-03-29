@@ -16,7 +16,7 @@ module.exports = (app) => {
     })
     
     app.post('/clientes', (req, res, next) => {
-	console.log(req.body);
+	
 	var usu_code = req.body.client_code;
 	var query = {
 		usu_code		: req.body.client_code,
