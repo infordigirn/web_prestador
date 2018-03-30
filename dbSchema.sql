@@ -57,12 +57,13 @@ CREATE TABLE IF NOT EXISTS tb_usuarios(
 -- DROP TABLE tb_usuarios
 --------------------------------------------------------------------------
 INSERT INTO "tb_usuarios" (
+	"usu_tipo_code",
+	"usu_status_code",
 	"usu_name",
 	"usu_email",
 	"usu_user",
-	"usu_pass",
-	"usu_status"
-) VALUES ('Renato Nascimento', 'infordigirn@gmail.com', 'infordigi', '123456', 1);
+	"usu_pass"
+) VALUES (1,1,'Renato Nascimento', 'infordigirn@gmail.com', 'infordigi', '123456');
 
 
 
