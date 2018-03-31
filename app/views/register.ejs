@@ -1,0 +1,158 @@
+<% include ../header_3 %>
+
+    <body>
+
+        <script type="text/javascript">
+            var Workana = {"isMobile":false,"isTablet":false,"isDesktop":true,"ajaxCSRFHeaderKey":"X-Csrf-Token","ajaxCSRFToken":"csrf5aa67306f3217\/324373122c957f6e353fca78ee935db3","disableNotify":{"all":false,"custom":false,"desktop":false},"debug":false,"userId":null,"chatChannel":null,"notificationAudioUrl":"https:\/\/wkncdn.com\/newx\/assets\/build\/sounds\/new.568c45226.mp3","videoCallAudioUrl":"https:\/\/wkncdn.com\/newx\/assets\/build\/sounds\/video-call.49f6b43dd.mp3","language":"pt","locale":"pt_BR","chatEnabled":false,"amplitudeIsEnabled":true};
+        </script>
+
+        <div id="app" class="">
+
+            <div class="container">
+                        
+            </div>
+
+            <div class="container main">
+
+                <div class="row access access-floating">
+                    <div class="col-md-5 col-md-offset-4 col-lg-4 access-wrapper">
+                        <div class="access-box">
+
+                            <div class="access-logo">
+                                <a href="/">
+                                    <!-- aqui se coloca a imagem acima do registo-->
+                                    <img src="../public/img/prestador.png" height="120">          
+                                </a>
+                            </div>
+
+                            <div class="box-common box-lg">
+                                <div class="row">
+                                    <div class="col-md-12 signup-box js-signup">
+                                        <h2><span>Crie uma <span class="last">conta Prestador</span></span></h2>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <input type="email" name="email" escapeOptionsList="1" value="" class="form-control" tabIndex="2" placeHolder="Email" data-parsley-required="true" v-on:change="checkEmail" v-on:blur="sendAmplitudeSignupIntentionEvent" id="UserEmail" />
+                                        <div class="input-group" v-show="mailCheckerHelp" v-cloak>
+                                        Talvez você queira dizer <a v-on:click="chooseSuggested"><span v-text="emailSuggested"></span></a>?                    </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <input type="password" name="password" escapeOptionsList="1" v-wk-popover-inline="" class="form-control" tabIndex="3" placeHolder="Senha" data-parsley-minlength="7" data-parsley-required="true" id="UserPassword" />
+                                        <p class="help-block "><span class="arrow"></span>Dica: A senha deve ter ao menos 7 caracteres. Para torná-la mais segura, utilize letras maiúsculas e minúsculas, números e símbolos como ! " ? $ % ^ &.</p>
+                                        <!-- Aqui é a confirmação da senha, o nome do campo para validação é passwordconf.-->
+                                        <input type="password" name="passwordconf" escapeOptionsList="1" v-wk-popover-inline="" class="form-control" tabIndex="3" placeHolder="Confirme a senha" data-parsley-minlength="7" data-parsley-required="true" id="UserPassword" />
+                                    </div>
+
+                                    <div class="row" style="margin-bottom: 10px;margin-top: 20px;">
+                                        <div class="col-md-12"> 
+                                            <input type="submit" value="Crie sua conta" class="btn btn-lg btn-primary btn-block" />                    
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="col-md-12">
+                            <hr>
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        Você já está registrado no Prestador?
+                                        <a href="login2.html" class="green">Login</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://storage.googleapis.com/workana-reporting/raven.min.js?" crossorigin="anonymous"></script>
+        
+        <script>
+            if (window.Raven) {
+                Raven.config('https://a5a7a84f4d654157bdbe12663489c1ff@reporting.workana.com/3', {
+                    release: 'a72460a87ed6d3891c04573a54076ccf9760672f',
+                    logger: 'WorkanaLogger',
+                    whitelistUrls: [
+                        /workana\.com/,
+                        /workana-assets\.storage\.googleapis\.com/,
+                        /wkncdn\.com/,
+                    ],
+                    ignoreErrors: [
+                        'fb_xd_fragment',
+                        /ReferenceError:.*/ 
+                    ],
+                    includePaths: [
+                        /https?:\/\/workana-assets\.storage\.googleapis\.com/,
+                        /https?:\/\/(www\.)?workana\.com/,
+                        /https?:\/\/wkncdn\.com/,
+                    ]
+                }).install();
+
+                if (window.Workana && window.Workana.userId) {
+                    Raven.setUserContext({
+                        id: Workana.userId,
+                        email: Workana.email
+                    });
+                }
+            }
+        </script>
+
+        <script type="application/javascript">
+            !function(e){function n(r){if(t[r])return t[r].exports;var o=t[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,n),o.l=!0,o.exports}var t,r,o=window.webpackJsonp;window.webpackJsonp=function(t,c,a){for(var u,i,f,s=0,l=[];s<t.length;s++)i=t[s],r[i]&&l.push(r[i][0]),r[i]=0;for(u in c)Object.prototype.hasOwnProperty.call(c,u)&&(e[u]=c[u]);for(o&&o(t,c,a);l.length;)l.shift()();if(a)for(s=0;s<a.length;s++)f=n(n.s=a[s]);return f},t={},r={17:0},n.e=function(e){function t(){a.onerror=a.onload=null,clearTimeout(u);var n=r[e];0!==n&&(n&&n[1](new Error("Loading chunk "+e+" failed.")),r[e]=void 0)}var o,c,a,u,i=r[e];return 0===i?new Promise(function(e){e()}):i?i[2]:(o=new Promise(function(n,t){i=r[e]=[n,t]}),i[2]=o,c=document.getElementsByTagName("head")[0],a=document.createElement("script"),a.type="text/javascript",a.charset="utf-8",a.async=!0,a.timeout=12e4,n.nc&&a.setAttribute("nonce",n.nc),a.src=n.p+"bundle."+e+"."+{0:"9b8d34547",1:"a02cb7fe5",2:"c7d02e0d3",3:"10b00ca65",4:"b020eaa62",5:"3be9e7e2a",6:"6f810aff6",7:"61449f79e",8:"a7eceba6e",9:"bfbc957a0",10:"5eaa108a0",11:"7b3275409",12:"657a606bc",13:"971e98355",14:"c89ce0b86",15:"507d4577c",16:"b54f92cc3"}[e]+".js",u=setTimeout(t,12e4),a.onerror=a.onload=t,c.appendChild(a),o)},n.m=e,n.c=t,n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{configurable:!1,enumerable:!0,get:r})},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,n){return Object.prototype.hasOwnProperty.call(e,n)},n.p="https://wkncdn.com/newx/assets/build/",n.oe=function(e){throw console.error(e),e}}([]);
+            //# sourceMappingURL=bundle.initial-loader.927aca81d.js.map    </script>
+        <script crossorigin="anonymous" src="https://wkncdn.com/newx/assets/build/bundle.vendor-all.657a606bc.js" type="application/javascript"></script>
+        <script crossorigin="anonymous" src="https://wkncdn.com/newx/assets/build/bundle.vendor-internal.7b3275409.js" type="application/javascript"></script>
+        <script crossorigin="anonymous" src="https://wkncdn.com/newx/assets/build/bundle.app.5eaa108a0.js" type="application/javascript"></script>
+
+        <script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"5561723"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script>
+        
+        <noscript>
+            <img src="//bat.bing.com/action/0?ti=5561723&Ver=2" height="0" width="0" style="display:none; visibility: hidden;" />
+        </noscript>
+
+        <script type="text/javascript">
+            var google_conversion_id = 1007132020;
+            var google_custom_params = [];
+            var google_remarketing_only = true;
+        </script>
+
+        <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+
+        <noscript>
+            <div style="display:inline;">
+                <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1007132020/?value=1.00&guid=ON&currency_code=USD&script=0"/>
+            </div>
+        </noscript>
+
+        <script type="text/javascript">
+            var google_conversion_id = 933686298;
+            var google_custom_params = [];
+            var google_remarketing_only = true;
+        </script>
+
+        <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+
+        <noscript>
+            <div style="display:inline;">
+                <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/933686298/?value=1.00&guid=ON&currency_code=ARS&script=0"/>
+            </div>
+        </noscript>
+
+        <script type="text/javascript">
+            var google_conversion_id = 938156306;
+            var google_custom_params = [];
+            var google_remarketing_only = true;
+        </script>
+
+        <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+        
+        <noscript>
+            <div style="display:inline;">
+                <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/938156306/?value=1.00&guid=ON&currency_code=BRL&script=0"/>
+            </div>
+        </noscript>
+
+    </body>
+</html>
