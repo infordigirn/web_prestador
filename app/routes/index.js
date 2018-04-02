@@ -15,11 +15,11 @@ module.exports = (app) => {
             res.redirect('cadastro_usuarios');
       })
 
-      app.get('/registro_prestador', (req, res, next) => {
-            res.render('register');
+      app.get('/registro', (req, res, next) => {
+            res.render('index');
       })
 
-      app.post('registro_prestadores', (req, res, next) => {
-            redirect('/cadastro');
+      app.post('/registro', (req, res, next) => {
+            redirect('/index');
       })
 }
