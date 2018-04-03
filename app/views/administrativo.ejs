@@ -1,13 +1,13 @@
-<% include ../header_2 _%>
+<% include ../headers _%>
 
 <body>
 
 <div class="container">
 	<h2 class="text-center">Área Administrativa</h2>
-	<h2>Tabela de Clientes</h2>
+	<h2>Tabela de Usuárioss</h2>
 	<div class="row">
 		<div class="col-md-11">
-			<p>Tabela exibe clientes cadastrados:</p> 
+			<p>Tabela exibe usuários cadastrados:</p> 
 		</div>
 		<div class="col-md-1">
 			<a href="#" class="btn btn-primary" data-toggle="modal" data-option="new" data-target="#options_dialog"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </a>
@@ -20,9 +20,11 @@
 			<tr>
 				<th>#</th>
 				<th>Nome</th>
+				<th>Endereço</th>
 				<th>Email</th>
-				<th>Username</th>
 				<th>Tipo</th>
+				<th>Profissão</th>
+				<th>Contato</th>
 				<th>Status</th>
 				<th>Opções</th>
 			</tr>
@@ -33,9 +35,11 @@
 			<tr>
 				<td><%= user.usu_code %></td>
 				<td><%= user.usu_name %></td>
+				<td><%= user.usu_endereco %></td>
 				<td><%= user.usu_email %></td>
-				<td><%= user.usu_user %></td>
 				<td><%= user.tipo_name %></td>
+				<td><%= user.prof_name %></td>
+				<td><%= user.usu_contato %></td>
 				<td><%= user.status_name %></td>
 				<td class="text-center">
 					<ul class="icons-list">
@@ -79,7 +83,7 @@
 			<!-- inicio modal new -->
 				<div class="new_client" style="display:none">
 					<div class="row">
-						<form id="new_form" action="/clientes" method="POST">
+						<form id="new_form" action="/administracao" method="POST">
 							<input id="action" type="hidden" name="action" value="new">
 							<div class="form-group col-md-12">
 								<label for="nome"><strong>Nome:</strong></label>
@@ -126,7 +130,7 @@
 				<!-- inicio modal edit -->
 				<div class="edit_client" style="display:none">
 					<div class="row">
-						<form id="edit_form" action="/clientes" method="POST">
+						<form id="edit_form" action="/administracao" method="POST">
 							<input id="action" type="hidden" name="action" value="edit">
 							<input id="code_client_e" type="hidden" name="client_code" vale=""> 
 							<div class="form-group col-md-12">
@@ -164,7 +168,7 @@
 				<!-- inicio modal delete -->
 				<div class="delete_client" style="display:none">
 					<div class="row">
-						<form id="delete_form" action="/clientes" method="POST">
+						<form id="delete_form" action="/administracao" method="POST">
 							<input id="action" type="hidden" name="action" value="delete">
 							<input id="code_client_d" type="hidden" name="client_code" vale="">
 							<div class="form-group col-md-12">									

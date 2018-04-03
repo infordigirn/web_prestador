@@ -53,8 +53,10 @@
 
                         <div class="register_client" style="display:none">
                             <div class="row">
-                                <form action="/registro" id="form_client" method="POST">
-                                    <input id="action" type="hidden" name="action" value="new"> 
+                                <form action="/administracao" id="form_client" method="POST">
+                                    <input id="action" type="hidden" name="action" value="new">
+                                    <input id="status_client" type="hidden" name="status" value="1">
+                                    <input id="tipo_client" type="hidden" name="tipo" value="4"> 
                                     <div class="form-group col-md-12">
                                         <label for="nome"><strong>Nome:</strong></label>
                                         <input type="text" id="nome" class="form-control nome" name="nome" required="required">
@@ -113,8 +115,10 @@
 
                         <div class="register_prestador" style="display:none">
                             <div class="row">
-                                <form action="/registro" id="form_prestador" method="POST">
-                                    <input id="action" type="hidden" name="action" value="new"> 
+                                <form action="/administracao" id="form_prestador" method="POST">
+                                    <input id="action" type="hidden" name="action" value="new">
+                                    <input id="status_prestador" type="hidden" name="status" value="1">
+                                    <input id="tipo_prestador" type="hidden" name="tipo" value="3"> 
                                     <div class="form-group col-md-12">
                                         <label for="nome"><strong>Nome:</strong></label>
                                         <input type="text" id="nome" class="form-control nome" name="nome" required="required">

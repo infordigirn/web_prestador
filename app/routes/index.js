@@ -20,6 +20,7 @@ module.exports = (app) => {
       })
 
       app.post('/registro', (req, res, next) => {
-            redirect('/index');
+            console.log(req.body);
+            res.redirect('/');
       })
 }
