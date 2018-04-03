@@ -11,9 +11,12 @@ app.set('views', './app/views');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride());
+app.use(express.static('app/public'));
 // app.use(logErrors);
 // app.use(clientErrorHandler);
 // app.use(errorHandler);
+
+
 
 consign().include('app/routes').then('app/utils').into(app);
 massive({
