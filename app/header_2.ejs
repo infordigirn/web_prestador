@@ -28,6 +28,7 @@
 
             <meta name="csrf-token" content="csrf5a9dabfa07987/1ae31c30ba8e5210033663c731467c25" />
 
+            <link rel="stylesheet" type="text/css" href="/css/style.css">
             <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700">
             <meta name="theme-color" content="#253556">
             <meta name="apple-mobile-web-app-capable" content="yes">
@@ -73,6 +74,7 @@
                                     } else {
                                           filename = '' + e.name;
                                     }
+
                                     label = filename.split(cdn).join('') + ':' + lineno;
                                     if (e && e.error && e.error.stack && typeof(e.error.stack) === "string") {
                                           var stack = e.error.stack.split("    ").join('').split("\n").join(' | ');
@@ -101,11 +103,7 @@
                         }
                   })();
             </script>
-
-
-
-                  
-                  
+   
             <script type="text/javascript">
                   var _prum = [['id', '51703653abe53dad59000000'],
                               ['mark', 'firstbyte', (new Date()).getTime()]];
@@ -145,12 +143,10 @@
                   n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
                   t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
                   document,'script','//connect.facebook.net/en_US/fbevents.js');
-
                   fbq('init', '723886130982526');
-
-                                                      fbq('track', 'PageView');
-                                    
+                  fbq('track', 'PageView');                       
             </script>
+
             <noscript>
                   <img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=723886130982526&ev=PageView&noscript=1" />
             </noscript>

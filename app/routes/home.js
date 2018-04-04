@@ -64,8 +64,8 @@ module.exports = (app) => {
 	} else {
 		delete query.usu_code;
 		app.database.tb_usuarios.insert(query).then(data => {
-			res.redirect('/administracao' );
-		}).catch(error => { res.redirect('/administracao', err) });
+			res.redirect('/login' );
+		}).catch(error => { res.redirect('/login', err) });
 	}
 	
     })
