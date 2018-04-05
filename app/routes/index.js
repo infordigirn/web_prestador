@@ -23,4 +23,20 @@ module.exports = (app) => {
             console.log(req.body);
             res.redirect('/');
       })
+
+      app.get('/recuperar_senha', (req, res, next) =>{
+            res.rendr('forgot');
+      })
+
+      app.post('/recuperar_senha', (req, res, next) => {
+            res.redirect('forgot');
+      })
+
+      app.get('/servicos', (req, res, next) => {
+            res.render('descserv');
+      })
+
+      app.post('/servicos', (req, res, next) => {
+            res.redirect('descserv');
+      })
 }

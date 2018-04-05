@@ -1,0 +1,323 @@
+<% include ../header_2 %>
+
+    <body>
+        <script type="text/javascript">
+            var Workana = {
+                "isMobile":false,
+                "isTablet":false,
+                "isDesktop":true,
+                "ajaxCSRFHeaderKey":"X-Csrf-Token",
+                "ajaxCSRFToken":"csrf5aa67306f3217\/324373122c957f6e353fca78ee935db3",
+                "disableNotify":{
+                    "all":false,
+                    "custom":false,
+                    "desktop":false
+                },
+                "debug":false,
+                "userId":null,
+                "chatChannel":null,
+                "notificationAudioUrl":"https:\/\/wkncdn.com\/newx\/assets\/build\/sounds\/new.568c45226.mp3",
+                "videoCallAudioUrl":"https:\/\/wkncdn.com\/newx\/assets\/build\/sounds\/video-call.49f6b43dd.mp3",
+                "language":"pt",
+                "locale":"pt_BR",
+                "chatEnabled":false,
+                "amplitudeIsEnabled":true
+            };
+        </script>
+        
+        <div id="app" class="">
+            <header>
+                <nav class="navbar navbar-inverse navbar-fixed-top navbar--primary">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="input-search md visible-sm visible-xs pull-right">
+                                <button class="search-submit" type="button" data-toggle="collapse" data-target="#mobile-header-search" aria-expanded="false">
+                            </div>
+
+                            <a
+                                href="index.html"
+                                title="Inicio"
+                                tabIndex ="-1">
+                                <img height="50" width="100"
+                                    src="prestador.png"
+                                    alt="Prestador encontre seu serviço sem sair de casa"/>
+                            </a>
+
+                        </div>
+
+                        <!-- Aqui é a NAVBAR azul, podemos escolher o que vai aparecer ou não aqui nessa pagina de redefinir a senha. -->
+
+                        <div class="navbar-collapse collapse navbar-inverse-collapse navbar-loggedout ">
+
+                            <ul class="nav navbar-nav navbar-right loggedout-menu hidden-xs hidden-sm"s>
+
+                                <li><a href="register.html" role="button" title="Cadastre-se">Cadastre-se</a></li>
+
+                                <li><a href="login2.html" role="button" title="Entrar ">Entrar </a></li>
+
+                                <li style = "float: right">
+                                    <p class="navbar-btn">
+                                        <a href="index.html" role="button" title="Início" class="btn btn-success">Início</a>            
+                                    </p>
+                                </li>
+
+                            </ul>
+
+                        </div>                                                
+                    </div>
+                </nav>
+
+                <span id="mobile-header-search" class="collapse" v-cloak>
+                    <div class="mobile-search visible-md visible-sm visible-xs">
+                        <div class="container">
+                            <header-search inline-template
+                                :options='{"projects":{"label":"Projetos","url":"/pt/jobs"},"workers":{"label":"Freelancers","url":"/pt/freelancers"},"store":{"label":"Store","url":"/pt/store/search"}}'
+                                current="store">
+                                <form  @submit.prevent="search" class="searchForm">
+                                    <div class="input-search lg">
+                                        <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#">
+                                            <span class="search-title" v-cloak>
+                                                <span v-text="currentLabel"></span>
+                                                <b class="wk2-icon wk2-icon-down"></b>
+                                            </span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu" >
+                                            <li v-for="(index, item) in  in options" v-show="current != index">
+                                                <a href="#" @click.prevent="current = index">
+                                                    <span v-text="item.label"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <input type="text" name="query" value="" id="Query" class="search" v-model="query">
+                                        <input type="submit" class="search-submit" value="" @click.prevent="search">
+                                    </div>
+                                </form>
+                            </header-search>                
+                        </div>
+                    </div>
+                </span>
+            </header>
+
+            <div class="container"></div>
+            <div class="container main">
+                <freela-view
+                    inline-template
+                    :initial="{}">
+
+                    <section class="service-view" itemscope itemtype="http://schema.org/Product">
+                        <link itemprop="url" href="https://www.workana.com/pt/store/view/pacote-de-10-artigos-otimizados-em-seo"  />
+                        <h2 class="visible-xs visible-sm">Pacote de 10 artigos otimizados em SEO</h2>
+                        <div class="service-view-box box-common no-padding">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div id="carousel-service" class="carousel slide" data-ride="carousel" data-interval="false">
+
+                                        <div class="carousel-inner" role="listbox">
+                                            <div class="item active ">
+                                                <div class="item-thumb">
+                                                    <img src="https://workana.s3.amazonaws.com/store/products/gallery/782a2e9be946eb86fedc485739712e23/normal/fd1035f04b7e11e791536b23a16be4c2/trafficoptimization.jpg" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="service-resume">
+                                        <h2 class="hidden-xs hidden-sm" itemprop="name">Desenvolvimento de sistemas ERP</h2>
+                                        <div class="user-resume">
+                                            <span class="rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"></span>
+                                            <span class="shop-count">
+                                            <i class="icon icon-shop"></i>109                        </span>
+                                            <worker-popover :initial="{&quot;profile&quot;:{&quot;id&quot;:477492,&quot;src&quot;:&quot;https:\/\/workana.s3.amazonaws.com\/logos\/6a\/eb350065a811e7ad617189e345291b\/foto-workana.png&quot;,&quot;srcNormal&quot;:&quot;https:\/\/workana.s3.amazonaws.com\/logos\/6a\/ed7ef065a811e7999a4746df0dab66\/foto-workana.png&quot;,&quot;name&quot;:&quot;Neyanne L.&quot;,&quot;hash&quot;:&quot;925d5128593b7a5577af75e661631f0c&quot;,&quot;mainSkillName&quot;:&quot;Tradu\u00e7\u00e3o e conte\u00fados&quot;,&quot;rating&quot;:4.8099999999999996,&quot;ranking&quot;:&quot;3&quot;,&quot;description&quot;:&quot;Trabalhamos em conjunto com uma equipe de universit\u00e1rios e jovens dedicados que desejam crescer na carreira de produ\u00e7\u00e3o de conte\u00fado WEB. \r\n\r\nAtualmente estamos entre os 10 melhores perfis de toda a comunidade Workana, e entre os 3 perfis melhores posicionados no Brasil. \r\n\r\nTudo isso gra\u00e7as a muito trabalho duro, e uma constante busca por nos atualizar em um universo t\u00e3o vasto quanto o marketing digital. \r\n\r\nN\u00e3o basta apenas escrever, temos que cativar nossos leitores. E \u00e9 isso que buscamos: oferecer o melhor conte\u00fado com base nas t\u00e9cnicas mais inovadoras do Mercado. \r\n\r\nSomos especialistas em Inbound Marketing, formados em Marketing de Conte\u00fado pela Rock Content (ainda nos aperfei\u00e7oando em cursos extras para melhor abranger outras \u00e1reas al\u00e9m da produ\u00e7\u00e3o de conte\u00fado). \r\n\r\nTamb\u00e9m oferecemos servi\u00e7os em Design Gr\u00e1fico, desde a cria\u00e7\u00e3o de logotipos ao desenvolvimento da identidade visual completa para sua empresa\/neg\u00f3cio. \r\n\r\nAssim o conjunto das nossas habilidades com certeza v\u00eam para somar e garantir mais abrang\u00eancia e qualidade para os nossos servi\u00e7os. \r\n\r\nCom a total satisfa\u00e7\u00e3o dos nossos clientes em todo o Brasil, podemos afirmar com absoluta certeza que somos a melhor escolha para desenvolver o teu projeto!\r\n\r\nPara ver mais sobre n\u00f3s e nossos projetos, n\u00e3o deixe de visitar nossos portf\u00f3lios no Behance.&quot;,&quot;url&quot;:&quot;https:\/\/www.workana.com\/pt\/freelancer\/925d5128593b7a5577af75e661631f0c&quot;,&quot;lastLogin&quot;:&quot;h\u00e1 7 horas&quot;,&quot;joined&quot;:&quot;H\u00e1 um ano&quot;,&quot;hourlyRate&quot;:&quot;R$ 30,00&quot;,&quot;projects&quot;:{&quot;finished&quot;:&quot;525&quot;,&quot;rehire&quot;:129,&quot;completed&quot;:&quot;80%&quot;},&quot;country&quot;:{&quot;code&quot;:&quot;br&quot;,&quot;name&quot;:&quot;Brasil&quot;},&quot;canInvite&quot;:false,&quot;shouldShowHireMeDialog&quot;:false},&quot;i18n&quot;:{&quot;titles&quot;:{&quot;rankingWorkana&quot;:&quot;Ranking Workana: #number#&quot;,&quot;finishedProjects&quot;:&quot;Projetos finalizados&quot;,&quot;rehire&quot;:&quot;Recontrata\u00e7\u00f5es&quot;,&quot;completedProjects&quot;:&quot;Projetos realizados&quot;,&quot;freelancer&quot;:&quot;Freelancer #name#&quot;,&quot;registeredSince&quot;:&quot;Registrado&quot;,&quot;lastLogin&quot;:&quot;\u00daltimo login&quot;},&quot;labels&quot;:{&quot;hire&quot;:&quot;Contratar&quot;}},&quot;template&quot;:{&quot;blankImgUrl&quot;:&quot;https:\/\/wkncdn.com\/newx\/assets\/build\/img\/blank.325472601.gif&quot;,&quot;countryLink&quot;:&quot;https:\/\/www.workana.com\/pt\/freelancers?country=BR&quot;,&quot;loggedInUser&quot;:false}}" orientation="bottom right" inline-template v-cloak>
+                                                <span class="popover-user-wrapper" v-on:mouseover="hover" v-on:mouseout="hoverOut">
+                                                    <a class="profile-photo img img-circle" href="https://www.workana.com/pt/freelancer/925d5128593b7a5577af75e661631f0c">
+                                                        <img src="https://workana.s3.amazonaws.com/logos/6a/eb350065a811e7ad617189e345291b/foto-workana.png" />
+                                                    </a>
+                                                    <a class="user-name" href="https://www.workana.com/pt/freelancer/925d5128593b7a5577af75e661631f0c">Neyanne L.</a>
+                                                    <div v-if="showPopup" v-on:mouseover="hoverInfo" v-on:mouseout="hoverOutInfo" class="hidden-xs popover popover-user block-appear" v-bind:class="orientation" id="userPopover" style="display: block;" v-cloak>
+                                                        <div class="arrow"></div>
+                                                        <div class="popover-inner">
+                                                            <div class="popover-header">
+                                                                <div class="row row-condensed">
+                                                                    <div class="col-sm-3 user-photo">
+                                                                        <a class="profile-photo-link profile-photo img img-circle" v-bind:href="profile.url">
+                                                                            <img v-bind:src="profile.srcNormal" class="media-object" v-bind:alt="i18n.titles.freelancer" width="60" v-bind:title="profile.name">
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="col-sm-4">
+                                                                        <a v-bind:href="profile.url">
+                                                                            <h4 v-text="profile.name"></h4>
+                                                                        </a>
+                                                                        <p v-text="i18n.titles.rankingWorkana.replace('#number#','#' + profile.ranking)"></p>
+                                                                        <p v-text="i18n.titles.registeredSince + ' ' + profile.joined.toLowerCase()"></p>
+                                                                    </div>
+                                                                    <div class="col-sm-5 pull-right text-right">
+                                                                        <label for="rating-2.00">
+                                                                            <generic-stars v-bind:stars="profile.rating"/>
+                                                                        </label>
+                                                                        <p><span v-text="i18n.titles.lastLogin"></span>: <span class="date" v-text="profile.lastLogin.toLowerCase()"></span></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="popover-content">
+                                                                <div class="row row-condensed">
+                                                                    <div class="col-sm-4">
+                                                                        <h4 v-text="profile.projects.finished"></h4>
+                                                                        <p v-text="i18n.titles.finishedProjects"></p>
+                                                                    </div>
+                                                                    <div class="col-sm-4">
+                                                                        <h4 v-text="profile.projects.rehire"></h4>
+                                                                        <p v-text="i18n.titles.rehire"></p>
+                                                                    </div>
+                                                                    <div class="col-sm-4">
+                                                                        <h4 v-text="profile.projects.completed"></h4>
+                                                                        <p v-text="i18n.titles.completedProjects"></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="popover-footer">
+                                                                <div class="row row-condensed">
+                                                                    <div class="col-sm-4">
+                                                                        <h4>
+                                                                        <span class="country">
+                                                                            <a v-bind:href="template.countryLink">
+                                                                                <img v-bind:src="template.blankImgUrl" v-bind:class="'flag flag-' + profile.country.code" v-bind:title="profile.country.name" alt="">
+                                                                            </a>
+                                                                        </span>
+                                                                        <span class="text-success" v-text="profile.hourlyRate"></span>
+                                                                        </h4>
+                                                                    </div>
+                                                                    <div class="col-sm-8 text-right">
+                                                                        <div v-if="profile.shouldShowHireMeDialog">
+                                                                            <a href="#" v-bind:data-hash="profile.hash" v-bind:data-name="profile.name" event-name="hire"  @click.prevent="this.$root.openHireMeDialog($event)"  class="btn btn-primary" v-text="i18n.labels.hire" v-wk-amplitude-event-tracker></a>
+                                                                        </div>
+                                                                        <div v-else>
+                                                                            <a href="#" v-bind:data-hash="profile.hash" v-bind:data-can-invite="profile.canInvite" v-bind:data-name="profile.name" @click.prevent="$dispatch('open_project_quick_dialog', $event)"  class="btn btn-primary" v-text="i18n.labels.hire"></a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>                                
+                                                </span>
+                                            </worker-popover>
+                                        </div>
+                                        <h3 class="price">De
+                                            <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                                <span itemprop="priceCurrency" content="R$">R$</span>
+                                                <span itemprop="price" content="100">100</span>
+                                            </span>
+                                            <a
+                                                @click.prevent="goToBuy" href="login2.html"
+                                                class="btn btn-success hidden-xs hidden-sm">Comprar                            
+                                            </a>
+                                            <a href="login2.html" class="btn btn-success btn-select visible-xs visible-sm" data-toggle="modal" data-target="#serviceOptionsModal">Escolha Pack</a>
+                                        </h3>
+
+                                        <div class="description" itemprop="description">
+                                            <p class="preserve-new-lines">Meu nome é Helder - sou do Prestador- formado em Marketing de Conteúdo pela Rock Content, há mais de 3 anos no Mercado e especialista em otimização em SEO. Trabalho em conjunto com o Alessandro, e sou responsável pela parte escrita de todo o Design de Comunicação. Também conto com uma equipe de universitários de diversos cursos, desta forma, podemos contemplar diversos assuntos com credibilidade e autoridade. Estamos oferecendo esse pacote com 10 artigos, para lhe proporcionar mais praticidade e menos gasto de tempo no conteúdo para os seus sites/blogs. Agradecemos.</p>
+                                        </div>
+                                        <div class="skills">
+                                            <div class="wk-bullet">Habilidades envolvidas:</div>
+                                            <span class="skill">WordPress</span>
+                                            <span class="skill">Blogs</span>
+                                        </div>      
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </freela-view>    
+            </div>
+        </div>
+            
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/clappr/0.2.66/clappr.min.js"></script>
+
+        <script src="https://storage.googleapis.com/workana-reporting/raven.min.js?" crossorigin="anonymous"></script>
+        <script>
+            if (window.Raven) {
+                Raven.config('https://a5a7a84f4d654157bdbe12663489c1ff@reporting.workana.com/3', {
+                    release: '278fb4ee3bd8e5a1b0fe8fd7e651fd60135bfc3e',
+                    logger: 'WorkanaLogger',
+                    whitelistUrls: [
+                        /workana\.com/,
+                                            /workana-assets\.storage\.googleapis\.com/,
+                        /wkncdn\.com/,
+                    ],
+                    ignoreErrors: [
+                        'fb_xd_fragment',
+                        /ReferenceError:.*/
+                    ],
+                    includePaths: [
+                        /https?:\/\/workana-assets\.storage\.googleapis\.com/,
+                        /https?:\/\/(www\.)?workana\.com/,
+                        /https?:\/\/wkncdn\.com/,
+                                        ]
+                }).install();
+                if (window.Workana && window.Workana.userId) {
+                    Raven.setUserContext({
+                        id: Workana.userId,
+                        email: Workana.email
+                    });
+                }
+            }
+        </script>
+
+        <script type="application/javascript">
+            !function(e){function n(r){if(t[r])return t[r].exports;var o=t[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,n),o.l=!0,o.exports}var t,r,o=window.webpackJsonp;window.webpackJsonp=function(t,c,a){for(var u,i,f,s=0,l=[];s<t.length;s++)i=t[s],r[i]&&l.push(r[i][0]),r[i]=0;for(u in c)Object.prototype.hasOwnProperty.call(c,u)&&(e[u]=c[u]);for(o&&o(t,c,a);l.length;)l.shift()();if(a)for(s=0;s<a.length;s++)f=n(n.s=a[s]);return f},t={},r={17:0},n.e=function(e){function t(){a.onerror=a.onload=null,clearTimeout(u);var n=r[e];0!==n&&(n&&n[1](new Error("Loading chunk "+e+" failed.")),r[e]=void 0)}var o,c,a,u,i=r[e];return 0===i?new Promise(function(e){e()}):i?i[2]:(o=new Promise(function(n,t){i=r[e]=[n,t]}),i[2]=o,c=document.getElementsByTagName("head")[0],a=document.createElement("script"),a.type="text/javascript",a.charset="utf-8",a.async=!0,a.timeout=12e4,n.nc&&a.setAttribute("nonce",n.nc),a.src=n.p+"bundle."+e+"."+{0:"9b8d34547",1:"a02cb7fe5",2:"c7d02e0d3",3:"10b00ca65",4:"b020eaa62",5:"3be9e7e2a",6:"6f810aff6",7:"61449f79e",8:"a7eceba6e",9:"bfbc957a0",10:"5eaa108a0",11:"7b3275409",12:"657a606bc",13:"971e98355",14:"c89ce0b86",15:"507d4577c",16:"b54f92cc3"}[e]+".js",u=setTimeout(t,12e4),a.onerror=a.onload=t,c.appendChild(a),o)},n.m=e,n.c=t,n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{configurable:!1,enumerable:!0,get:r})},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,n){return Object.prototype.hasOwnProperty.call(e,n)},n.p="https://wkncdn.com/newx/assets/build/",n.oe=function(e){throw console.error(e),e}}([]);
+            //# sourceMappingURL=bundle.initial-loader.927aca81d.js.map    </script>
+        <script crossorigin="anonymous" src="https://wkncdn.com/newx/assets/build/bundle.vendor-all.657a606bc.js" type="application/javascript"></script>
+        <script crossorigin="anonymous" src="https://wkncdn.com/newx/assets/build/bundle.vendor-internal.7b3275409.js" type="application/javascript"></script>
+        <script crossorigin="anonymous" src="https://wkncdn.com/newx/assets/build/bundle.app.5eaa108a0.js" type="application/javascript"></script>
+
+        <script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"5561723"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script><noscript><img src="//bat.bing.com/action/0?ti=5561723&Ver=2" height="0" width="0" style="display:none; visibility: hidden;" /></noscript>
+                    
+        <script type="text/javascript">
+            var google_conversion_id = 1007132020;
+            var google_custom_params = [];
+            var google_remarketing_only = true;
+        </script>
+
+        <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+
+        <noscript>
+            <div style="display:inline;">
+                <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1007132020/?value=1.00&guid=ON&currency_code=USD&script=0"/>
+            </div>
+        </noscript>
+
+        <script type="text/javascript">
+            var google_conversion_id = 933686298;
+            var google_custom_params = [];
+            var google_remarketing_only = true;
+        </script>
+
+        <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+
+        <noscript>
+            <div style="display:inline;">
+                <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/933686298/?value=1.00&guid=ON&currency_code=ARS&script=0"/>
+            </div>
+        </noscript>
+
+        <script type="text/javascript">
+            var google_conversion_id = 938156306;
+            var google_custom_params = [];
+            var google_remarketing_only = true;
+        </script>
+
+        <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+
+        <noscript>
+            <div style="display:inline;">
+                <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/938156306/?value=1.00&guid=ON&currency_code=BRL&script=0"/>
+            </div>
+        </noscript>
+
+    </body>
+</html>
