@@ -1,10 +1,10 @@
 module.exports = (app) => {
       app.get('/', (req, res, next) => {
-            res.render('index');
+            res.render('landing');
       })
 
       app.post('/', (req, res, next) => {
-            res.redirect('index');
+            res.redirect('landing');
       })
 
       app.get('/cadastro',(req, res, next) => {

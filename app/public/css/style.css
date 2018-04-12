@@ -1,6 +1,14 @@
+*{
+    list-style: none;
+}
+
 html {
     background-color: #dedff4;
 }
+
+/* body {
+    padding-top: 10%;
+} */
 
 #app {
     background-color: #dedff4;
@@ -8,4 +16,44 @@ html {
 
 .btn .store-home-category-item {
     background-color: #121555;
+}
+
+.bg_video{
+    position: fixed; 
+    right: 0; 
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto; 
+    height: auto; 
+    z-index: -1000;
+    background: url(../video/graphics2_original.mp4) no-repeat;
+    background-size: cover; 
+}
+
+.navbar {
+    padding: 2% 1% 1% 0%;
+    background-color: rgba(10, 21, 104,.3);
+}
+
+.list-nav {
+    text-align: right;
+    /* margin-top: 3%; */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.list-nav ul li {
+    display: inline;
+}
+
+.list-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 1%;
+}
+
+.list-nav ul li :hover {
+    background-color: rgba(20, 39, 186,.4);
+    border-radius: 5px;
 }
