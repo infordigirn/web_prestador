@@ -23,7 +23,7 @@ massive({
     host: '127.0.0.1',
     port: 5432,
     database: 'db_prestador',
-    user: 'postgres',
+    user: 'infordigi',
     password: 'helohim33'
 }).then(instance => {
     app.database = instance;
